@@ -1,0 +1,2392 @@
+{
+  "Moore": [
+    {
+      "name": "Aberdeen",
+      "rate": 0.42
+    },
+    {
+      "name": "Cameron",
+      "rate": 0.575
+    },
+    {
+      "name": "Carthage",
+      "rate": 0.505
+    },
+    {
+      "name": "Foxfire Village",
+      "rate": 0.29
+    },
+    {
+      "name": "Pinebluff",
+      "rate": 0.4
+    },
+    {
+      "name": "Pinehurst",
+      "rate": 0.225
+    },
+    {
+      "name": "Robbins",
+      "rate": 0.7
+    },
+    {
+      "name": "Southern Pines",
+      "rate": 0.29
+    },
+    {
+      "name": "Taylortown",
+      "rate": 0.475
+    },
+    {
+      "name": "Vass",
+      "rate": 0.49
+    },
+    {
+      "name": "Whispering Pines",
+      "rate": 0.32
+    }
+  ],
+  "Hertford": [
+    {
+      "name": "Ahoskie",
+      "rate": 0.81
+    },
+    {
+      "name": "Cofield",
+      "rate": 0.5
+    },
+    {
+      "name": "Como",
+      "rate": 0.3
+    },
+    {
+      "name": "Harrellsville",
+      "rate": 0.4
+    },
+    {
+      "name": "Murfreesboro",
+      "rate": 0.66
+    },
+    {
+      "name": "Winton",
+      "rate": 0.65
+    }
+  ],
+  "Alamance": [
+    {
+      "name": "Alamance",
+      "rate": 0.145
+    },
+    {
+      "name": "Burlington",
+      "rate": 0.4836
+    },
+    {
+      "name": "Elon",
+      "rate": 0.35
+    },
+    {
+      "name": "Graham",
+      "rate": 0.2899
+    },
+    {
+      "name": "Green Level",
+      "rate": 0.26
+    },
+    {
+      "name": "Haw River",
+      "rate": 0.44
+    },
+    {
+      "name": "Mebane",
+      "rate": 0.37
+    },
+    {
+      "name": "Ossipee",
+      "rate": 0.0
+    },
+    {
+      "name": "Swepsonville",
+      "rate": 0.0
+    }
+  ],
+  "Stanly": [
+    {
+      "name": "Albemarle",
+      "rate": 0.61
+    },
+    {
+      "name": "Badin",
+      "rate": 0.4475
+    },
+    {
+      "name": "Locust",
+      "rate": 0.36
+    },
+    {
+      "name": "Misenheimer",
+      "rate": 0.22
+    },
+    {
+      "name": "New London",
+      "rate": 0.16
+    },
+    {
+      "name": "Norwood",
+      "rate": 0.41
+    },
+    {
+      "name": "Oakboro",
+      "rate": 0.37
+    },
+    {
+      "name": "Red Cross",
+      "rate": 0.16
+    },
+    {
+      "name": "Richfield",
+      "rate": 0.22
+    },
+    {
+      "name": "Stanfield",
+      "rate": 0.32
+    }
+  ],
+  "Pamlico": [
+    {
+      "name": "Alliance",
+      "rate": 0.08
+    },
+    {
+      "name": "Arapahoe",
+      "rate": 0.0
+    },
+    {
+      "name": "Bayboro",
+      "rate": 0.27
+    },
+    {
+      "name": "Grantsboro",
+      "rate": 0.05
+    },
+    {
+      "name": "Mesic",
+      "rate": 0.23
+    },
+    {
+      "name": "Minnesott Beach",
+      "rate": 0.11
+    },
+    {
+      "name": "Oriental",
+      "rate": 0.22
+    },
+    {
+      "name": "Stonewall",
+      "rate": 0.15
+    },
+    {
+      "name": "Vandemere",
+      "rate": 0.23
+    }
+  ],
+  "Cherokee": [
+    {
+      "name": "Andrews",
+      "rate": 0.52
+    },
+    {
+      "name": "Murphy",
+      "rate": 0.42
+    }
+  ],
+  "Harnett": [
+    {
+      "name": "Angier",
+      "rate": 0.49
+    },
+    {
+      "name": "Coats",
+      "rate": 0.49
+    },
+    {
+      "name": "Dunn",
+      "rate": 0.54
+    },
+    {
+      "name": "Erwin",
+      "rate": 0.48
+    },
+    {
+      "name": "Lillington",
+      "rate": 0.52
+    }
+  ],
+  "Anson": [
+    {
+      "name": "Ansonville",
+      "rate": 0.45
+    },
+    {
+      "name": "Lilesville",
+      "rate": 0.48
+    },
+    {
+      "name": "McFarlan",
+      "rate": 0.29
+    },
+    {
+      "name": "Morven",
+      "rate": 0.47
+    },
+    {
+      "name": "Peachland",
+      "rate": 0.3
+    },
+    {
+      "name": "Polkton",
+      "rate": 0.3
+    },
+    {
+      "name": "Wadesboro",
+      "rate": 0.556
+    }
+  ],
+  "Wake": [
+    {
+      "name": "Apex",
+      "rate": 0.34
+    },
+    {
+      "name": "Cary",
+      "rate": 0.325
+    },
+    {
+      "name": "Fuquay-Varina",
+      "rate": 0.358
+    },
+    {
+      "name": "Garner",
+      "rate": 0.52
+    },
+    {
+      "name": "Holly Springs",
+      "rate": 0.3435
+    },
+    {
+      "name": "Knightdale",
+      "rate": 0.44
+    },
+    {
+      "name": "Morrisville",
+      "rate": 0.35
+    },
+    {
+      "name": "Raleigh",
+      "rate": 0.355
+    },
+    {
+      "name": "Rolesville",
+      "rate": 0.4
+    },
+    {
+      "name": "Wake Forest",
+      "rate": 0.42
+    },
+    {
+      "name": "Wendell",
+      "rate": 0.42
+    },
+    {
+      "name": "Zebulon",
+      "rate": 0.577
+    }
+  ],
+  "Randolph": [
+    {
+      "name": "Archdale",
+      "rate": 0.31
+    },
+    {
+      "name": "Asheboro",
+      "rate": 0.71
+    },
+    {
+      "name": "Franklinville",
+      "rate": 0.475
+    },
+    {
+      "name": "Liberty",
+      "rate": 0.64
+    },
+    {
+      "name": "Ramseur",
+      "rate": 0.72
+    },
+    {
+      "name": "Randleman",
+      "rate": 0.63
+    },
+    {
+      "name": "Seagrove",
+      "rate": 0.44
+    },
+    {
+      "name": "Staley",
+      "rate": 0.125
+    },
+    {
+      "name": "Trinity",
+      "rate": 0.1
+    }
+  ],
+  "Johnston": [
+    {
+      "name": "Archer Lodge",
+      "rate": 0.32
+    },
+    {
+      "name": "Benson",
+      "rate": 0.61
+    },
+    {
+      "name": "Clayton",
+      "rate": 0.65
+    },
+    {
+      "name": "Four Oaks",
+      "rate": 0.515
+    },
+    {
+      "name": "Kenly",
+      "rate": 0.69
+    },
+    {
+      "name": "Micro",
+      "rate": 0.62
+    },
+    {
+      "name": "Pine Level",
+      "rate": 0.48
+    },
+    {
+      "name": "Princeton",
+      "rate": 0.69
+    },
+    {
+      "name": "Selma",
+      "rate": 0.6
+    },
+    {
+      "name": "Smithfield",
+      "rate": 0.57
+    },
+    {
+      "name": "Wilson's Mills",
+      "rate": 0.5
+    }
+  ],
+  "Buncombe": [
+    {
+      "name": "Asheville",
+      "rate": 0.4093
+    },
+    {
+      "name": "Biltmore Forest",
+      "rate": 0.345
+    },
+    {
+      "name": "Black Mountain",
+      "rate": 0.321
+    },
+    {
+      "name": "Montreat",
+      "rate": 0.43
+    },
+    {
+      "name": "Weaverville",
+      "rate": 0.35
+    },
+    {
+      "name": "Woodfin",
+      "rate": 0.33
+    }
+  ],
+  "Bertie": [
+    {
+      "name": "Askewville",
+      "rate": 0.2
+    },
+    {
+      "name": "Aulander",
+      "rate": 0.78
+    },
+    {
+      "name": "Colerain",
+      "rate": 0.49
+    },
+    {
+      "name": "Kelford",
+      "rate": 0.4
+    },
+    {
+      "name": "Lewiston-Woodville",
+      "rate": 0.6
+    },
+    {
+      "name": "Powellsville",
+      "rate": 0.35
+    },
+    {
+      "name": "Roxobel",
+      "rate": 0.25
+    },
+    {
+      "name": "Windsor",
+      "rate": 0.2
+    }
+  ],
+  "Pender": [
+    {
+      "name": "Atkinson",
+      "rate": 0.38
+    },
+    {
+      "name": "Burgaw",
+      "rate": 0.56
+    },
+    {
+      "name": "St. Helena",
+      "rate": 0.1
+    },
+    {
+      "name": "Surf City",
+      "rate": 0.41
+    },
+    {
+      "name": "Topsail Beach",
+      "rate": 0.4
+    },
+    {
+      "name": "Watha",
+      "rate": 0.05
+    }
+  ],
+  "Carteret": [
+    {
+      "name": "Atlantic Beach",
+      "rate": 0.225
+    },
+    {
+      "name": "Beaufort",
+      "rate": 0.46
+    },
+    {
+      "name": "Bogue",
+      "rate": 0.05
+    },
+    {
+      "name": "Cape Carteret",
+      "rate": 0.21
+    },
+    {
+      "name": "Cedar Point",
+      "rate": 0.1475
+    },
+    {
+      "name": "Emerald Isle",
+      "rate": 0.165
+    },
+    {
+      "name": "Indian Beach",
+      "rate": 0.34
+    },
+    {
+      "name": "Morehead City",
+      "rate": 0.41
+    },
+    {
+      "name": "Newport",
+      "rate": 0.545
+    },
+    {
+      "name": "Peletier",
+      "rate": 0.055
+    },
+    {
+      "name": "Pine Knoll Shores",
+      "rate": 0.24
+    }
+  ],
+  "Beaufort": [
+    {
+      "name": "Aurora",
+      "rate": 0.63
+    },
+    {
+      "name": "Bath",
+      "rate": 0.27
+    },
+    {
+      "name": "Belhaven",
+      "rate": 0.59
+    },
+    {
+      "name": "Chocowinity",
+      "rate": 0.73
+    },
+    {
+      "name": "Pantego",
+      "rate": 0.16
+    },
+    {
+      "name": "Washington",
+      "rate": 0.58
+    },
+    {
+      "name": "Washington Park",
+      "rate": 0.29
+    }
+  ],
+  "Sampson": [
+    {
+      "name": "Autryville",
+      "rate": 0.47
+    },
+    {
+      "name": "Clinton",
+      "rate": 0.34
+    },
+    {
+      "name": "Garland",
+      "rate": 0.48
+    },
+    {
+      "name": "Harrells",
+      "rate": 0.19
+    },
+    {
+      "name": "Newton Grove",
+      "rate": 0.4
+    },
+    {
+      "name": "Roseboro",
+      "rate": 0.46
+    },
+    {
+      "name": "Salemburg",
+      "rate": 0.3
+    },
+    {
+      "name": "Turkey",
+      "rate": 0.32
+    }
+  ],
+  "Pitt": [
+    {
+      "name": "Ayden",
+      "rate": 0.54
+    },
+    {
+      "name": "Bethel",
+      "rate": 0.45
+    },
+    {
+      "name": "Falkland",
+      "rate": 0.48
+    },
+    {
+      "name": "Farmville",
+      "rate": 0.49
+    },
+    {
+      "name": "Fountain",
+      "rate": 0.5875
+    },
+    {
+      "name": "Greenville",
+      "rate": 0.3954
+    },
+    {
+      "name": "Grifton",
+      "rate": 0.58
+    },
+    {
+      "name": "Grimesland",
+      "rate": 0.43
+    },
+    {
+      "name": "Simpson",
+      "rate": 0.45
+    },
+    {
+      "name": "Winterville",
+      "rate": 0.45
+    }
+  ],
+  "Nash": [
+    {
+      "name": "Bailey",
+      "rate": 0.68
+    },
+    {
+      "name": "Castalia",
+      "rate": 0.32
+    },
+    {
+      "name": "Dortches",
+      "rate": 0.0
+    },
+    {
+      "name": "Middlesex",
+      "rate": 0.52
+    },
+    {
+      "name": "Momeyer",
+      "rate": 0.09
+    },
+    {
+      "name": "Nashville",
+      "rate": 0.59
+    },
+    {
+      "name": "Red Oak",
+      "rate": 0.0
+    },
+    {
+      "name": "Rocky Mount",
+      "rate": 0.58
+    },
+    {
+      "name": "Sharpsburg",
+      "rate": 0.83
+    },
+    {
+      "name": "Spring Hope",
+      "rate": 0.67
+    },
+    {
+      "name": "Whitakers",
+      "rate": 0.75
+    }
+  ],
+  "Mitchell": [
+    {
+      "name": "Bakersville",
+      "rate": 0.44
+    },
+    {
+      "name": "Spruce Pine",
+      "rate": 0.46
+    }
+  ],
+  "Brunswick": [
+    {
+      "name": "Bald Head Island",
+      "rate": 0.6277
+    },
+    {
+      "name": "Belville",
+      "rate": 0.11
+    },
+    {
+      "name": "Boiling Spring Lakes",
+      "rate": 0.19
+    },
+    {
+      "name": "Bolivia",
+      "rate": 0.05
+    },
+    {
+      "name": "Calabash",
+      "rate": 0.058
+    },
+    {
+      "name": "Carolina Shores",
+      "rate": 0.1
+    },
+    {
+      "name": "Caswell Beach",
+      "rate": 0.19
+    },
+    {
+      "name": "Holden Beach",
+      "rate": 0.14
+    },
+    {
+      "name": "Leland",
+      "rate": 0.27
+    },
+    {
+      "name": "Navassa",
+      "rate": 0.25
+    },
+    {
+      "name": "Northwest",
+      "rate": 0.27
+    },
+    {
+      "name": "Oak Island",
+      "rate": 0.16
+    },
+    {
+      "name": "Ocean Isle Beach",
+      "rate": 0.13
+    },
+    {
+      "name": "Sandy Creek",
+      "rate": 0.25
+    },
+    {
+      "name": "Shallotte",
+      "rate": 0.31
+    },
+    {
+      "name": "Southport",
+      "rate": 0.31
+    },
+    {
+      "name": "St. James",
+      "rate": 0.06
+    },
+    {
+      "name": "Sunset Beach",
+      "rate": 0.16
+    },
+    {
+      "name": "Varnamtown",
+      "rate": 0.05
+    }
+  ],
+  "Avery": [
+    {
+      "name": "Banner Elk",
+      "rate": 0.46
+    },
+    {
+      "name": "Crossnore",
+      "rate": 0.3
+    },
+    {
+      "name": "Elk Park",
+      "rate": 0.3
+    },
+    {
+      "name": "Grandfather Village",
+      "rate": 0.0
+    },
+    {
+      "name": "Newland",
+      "rate": 0.56
+    },
+    {
+      "name": "Sugar Mountain",
+      "rate": 0.28
+    }
+  ],
+  "Martin": [
+    {
+      "name": "Bear Grass",
+      "rate": 0.35
+    },
+    {
+      "name": "Everetts",
+      "rate": 0.6
+    },
+    {
+      "name": "Hamilton",
+      "rate": 0.7
+    },
+    {
+      "name": "Hassell",
+      "rate": 0.3
+    },
+    {
+      "name": "Jamesville",
+      "rate": 0.73
+    },
+    {
+      "name": "Oak City",
+      "rate": 0.45
+    },
+    {
+      "name": "Parmele",
+      "rate": 0.68
+    },
+    {
+      "name": "Robersonville",
+      "rate": 0.7
+    },
+    {
+      "name": "Williamston",
+      "rate": 0.89
+    }
+  ],
+  "Watauga": [
+    {
+      "name": "Beech Mountain",
+      "rate": 0.65
+    },
+    {
+      "name": "Blowing Rock",
+      "rate": 0.4
+    },
+    {
+      "name": "Boone",
+      "rate": 0.39
+    },
+    {
+      "name": "Seven Devils",
+      "rate": 0.47
+    }
+  ],
+  "Gaston": [
+    {
+      "name": "Belmont",
+      "rate": 0.455
+    },
+    {
+      "name": "Bessemer City",
+      "rate": 0.55
+    },
+    {
+      "name": "Cherryville",
+      "rate": 0.48
+    },
+    {
+      "name": "Cramerton",
+      "rate": 0.435
+    },
+    {
+      "name": "Dallas",
+      "rate": 0.42
+    },
+    {
+      "name": "Gastonia",
+      "rate": 0.47
+    },
+    {
+      "name": "High Shoals",
+      "rate": 0.32
+    },
+    {
+      "name": "Lowell",
+      "rate": 0.355
+    },
+    {
+      "name": "McAdenville",
+      "rate": 0.39
+    },
+    {
+      "name": "Mount Holly",
+      "rate": 0.405
+    },
+    {
+      "name": "Ranlo",
+      "rate": 0.45
+    },
+    {
+      "name": "Stanley",
+      "rate": 0.49
+    }
+  ],
+  "Cleveland": [
+    {
+      "name": "Belwood",
+      "rate": 0.05
+    },
+    {
+      "name": "Boiling Springs",
+      "rate": 0.4
+    },
+    {
+      "name": "Casar",
+      "rate": 0.1
+    },
+    {
+      "name": "Earl",
+      "rate": 0.18
+    },
+    {
+      "name": "Fallston",
+      "rate": 0.05
+    },
+    {
+      "name": "Grover",
+      "rate": 0.47
+    },
+    {
+      "name": "Kings Mountain",
+      "rate": 0.48
+    },
+    {
+      "name": "Kingstown",
+      "rate": 0.48
+    },
+    {
+      "name": "Lattimore",
+      "rate": 0.22
+    },
+    {
+      "name": "Lawndale",
+      "rate": 0.35
+    },
+    {
+      "name": "Mooresboro",
+      "rate": 0.0
+    },
+    {
+      "name": "Patterson Springs",
+      "rate": 0.15
+    },
+    {
+      "name": "Polkville",
+      "rate": 0.08
+    },
+    {
+      "name": "Shelby",
+      "rate": 0.5175
+    },
+    {
+      "name": "Waco",
+      "rate": 0.23
+    }
+  ],
+  "Davie": [
+    {
+      "name": "Bermuda Run",
+      "rate": 0.15
+    },
+    {
+      "name": "Cooleemee",
+      "rate": 0.42
+    },
+    {
+      "name": "Mocksville",
+      "rate": 0.29
+    }
+  ],
+  "Forsyth": [
+    {
+      "name": "Bethania",
+      "rate": 0.3
+    },
+    {
+      "name": "Clemmons",
+      "rate": 0.15
+    },
+    {
+      "name": "Kernersville",
+      "rate": 0.584
+    },
+    {
+      "name": "Lewisville",
+      "rate": 0.217
+    },
+    {
+      "name": "Rural Hall",
+      "rate": 0.34
+    },
+    {
+      "name": "Tobaccoville",
+      "rate": 0.05
+    },
+    {
+      "name": "Walkertown",
+      "rate": 0.2
+    },
+    {
+      "name": "Winston-Salem",
+      "rate": 0.725
+    }
+  ],
+  "Duplin": [
+    {
+      "name": "Beulaville",
+      "rate": 0.48
+    },
+    {
+      "name": "Calypso",
+      "rate": 0.47
+    },
+    {
+      "name": "Faison",
+      "rate": 0.6
+    },
+    {
+      "name": "Greenevers",
+      "rate": 0.3
+    },
+    {
+      "name": "Kenansville",
+      "rate": 0.53
+    },
+    {
+      "name": "Magnolia",
+      "rate": 0.67
+    },
+    {
+      "name": "Rose Hill",
+      "rate": 0.75
+    },
+    {
+      "name": "Teachey",
+      "rate": 0.45
+    },
+    {
+      "name": "Wallace",
+      "rate": 0.62
+    },
+    {
+      "name": "Warsaw",
+      "rate": 0.57
+    }
+  ],
+  "Montgomery": [
+    {
+      "name": "Biscoe",
+      "rate": 0.56
+    },
+    {
+      "name": "Candor",
+      "rate": 0.65
+    },
+    {
+      "name": "Mount Gilead",
+      "rate": 0.6
+    },
+    {
+      "name": "Star",
+      "rate": 0.61
+    },
+    {
+      "name": "Troy",
+      "rate": 0.48
+    }
+  ],
+  "Wilson": [
+    {
+      "name": "Black Creek",
+      "rate": 0.42
+    },
+    {
+      "name": "Elm City",
+      "rate": 0.55
+    },
+    {
+      "name": "Lucama",
+      "rate": 0.38
+    },
+    {
+      "name": "Saratoga",
+      "rate": 0.53
+    },
+    {
+      "name": "Sims",
+      "rate": 0.35
+    },
+    {
+      "name": "Stantonsburg",
+      "rate": 0.5
+    },
+    {
+      "name": "Wilson",
+      "rate": 0.525
+    }
+  ],
+  "Bladen": [
+    {
+      "name": "Bladenboro",
+      "rate": 0.66
+    },
+    {
+      "name": "Clarkton",
+      "rate": 0.61
+    },
+    {
+      "name": "Dublin",
+      "rate": 0.49
+    },
+    {
+      "name": "East Arcadia",
+      "rate": 0.39
+    },
+    {
+      "name": "Elizabethtown",
+      "rate": 0.645
+    },
+    {
+      "name": "Tar Heel",
+      "rate": 0.36
+    },
+    {
+      "name": "White Lake",
+      "rate": 0.27
+    }
+  ],
+  "Columbus": [
+    {
+      "name": "Boardman",
+      "rate": 0.05
+    },
+    {
+      "name": "Bolton",
+      "rate": 0.6
+    },
+    {
+      "name": "Brunswick",
+      "rate": 0.42
+    },
+    {
+      "name": "Cerro Gordo",
+      "rate": 0.2
+    },
+    {
+      "name": "Chadbourn",
+      "rate": 0.62
+    },
+    {
+      "name": "Fair Bluff",
+      "rate": 0.65
+    },
+    {
+      "name": "Lake Waccamaw",
+      "rate": 0.22
+    },
+    {
+      "name": "Sandyfield",
+      "rate": 0.35
+    },
+    {
+      "name": "Tabor City",
+      "rate": 0.6
+    },
+    {
+      "name": "Whiteville",
+      "rate": 0.54
+    }
+  ],
+  "Yadkin": [
+    {
+      "name": "Boonville",
+      "rate": 0.49
+    },
+    {
+      "name": "East Bend",
+      "rate": 0.5
+    },
+    {
+      "name": "Jonesville",
+      "rate": 0.5
+    },
+    {
+      "name": "Yadkinville",
+      "rate": 0.42
+    }
+  ],
+  "Rutherford": [
+    {
+      "name": "Bostic",
+      "rate": 0.3
+    },
+    {
+      "name": "Chimney Rock",
+      "rate": 0.13
+    },
+    {
+      "name": "Ellenboro",
+      "rate": 0.22
+    },
+    {
+      "name": "Forest City",
+      "rate": 0.59
+    },
+    {
+      "name": "Lake Lure",
+      "rate": 0.357
+    },
+    {
+      "name": "Ruth",
+      "rate": 0.33
+    },
+    {
+      "name": "Rutherfordton",
+      "rate": 0.47
+    },
+    {
+      "name": "Spindale",
+      "rate": 0.642
+    }
+  ],
+  "Transylvania": [
+    {
+      "name": "Brevard",
+      "rate": 0.48
+    },
+    {
+      "name": "Rosman",
+      "rate": 0.46
+    }
+  ],
+  "Craven": [
+    {
+      "name": "Bridgeton",
+      "rate": 0.5
+    },
+    {
+      "name": "Cove City",
+      "rate": 0.36
+    },
+    {
+      "name": "Dover",
+      "rate": 0.33
+    },
+    {
+      "name": "Havelock",
+      "rate": 0.71
+    },
+    {
+      "name": "New Bern",
+      "rate": 0.39
+    },
+    {
+      "name": "River Bend",
+      "rate": 0.24
+    },
+    {
+      "name": "Trent Woods",
+      "rate": 0.17
+    },
+    {
+      "name": "Vanceboro",
+      "rate": 0.4
+    }
+  ],
+  "Lee": [
+    {
+      "name": "Broadway",
+      "rate": 0.46
+    },
+    {
+      "name": "Sanford",
+      "rate": 0.535
+    }
+  ],
+  "Catawba": [
+    {
+      "name": "Brookford",
+      "rate": 0.4
+    },
+    {
+      "name": "Catawba",
+      "rate": 0.5
+    },
+    {
+      "name": "Claremont",
+      "rate": 0.4175
+    },
+    {
+      "name": "Conover",
+      "rate": 0.395
+    },
+    {
+      "name": "Hickory",
+      "rate": 0.455
+    },
+    {
+      "name": "Long View",
+      "rate": 0.49
+    },
+    {
+      "name": "Maiden",
+      "rate": 0.38
+    },
+    {
+      "name": "Newton",
+      "rate": 0.45
+    }
+  ],
+  "Swain": [
+    {
+      "name": "Bryson City",
+      "rate": 0.45
+    }
+  ],
+  "Franklin": [
+    {
+      "name": "Bunn",
+      "rate": 0.37
+    },
+    {
+      "name": "Franklinton",
+      "rate": 0.73
+    },
+    {
+      "name": "Louisburg",
+      "rate": 0.5
+    },
+    {
+      "name": "Youngsville",
+      "rate": 0.55
+    }
+  ],
+  "Yancey": [
+    {
+      "name": "Burnsville",
+      "rate": 0.52
+    }
+  ],
+  "Granville": [
+    {
+      "name": "Butner",
+      "rate": 0.4
+    },
+    {
+      "name": "Creedmoor",
+      "rate": 0.42
+    },
+    {
+      "name": "Oxford",
+      "rate": 0.54
+    },
+    {
+      "name": "Stem",
+      "rate": 0.33
+    },
+    {
+      "name": "Stovall",
+      "rate": 0.275
+    }
+  ],
+  "Caldwell": [
+    {
+      "name": "Cajah's Mountain",
+      "rate": 0.0
+    },
+    {
+      "name": "Cedar Rock",
+      "rate": 0.2
+    },
+    {
+      "name": "Gamewell",
+      "rate": 0.0
+    },
+    {
+      "name": "Granite Falls",
+      "rate": 0.4485
+    },
+    {
+      "name": "Hudson",
+      "rate": 0.43
+    },
+    {
+      "name": "Lenoir",
+      "rate": 0.57
+    },
+    {
+      "name": "Sawmills",
+      "rate": 0.2
+    }
+  ],
+  "Haywood": [
+    {
+      "name": "Canton",
+      "rate": 0.54
+    },
+    {
+      "name": "Clyde",
+      "rate": 0.43
+    },
+    {
+      "name": "Maggie Valley",
+      "rate": 0.4
+    },
+    {
+      "name": "Waynesville",
+      "rate": 0.479
+    }
+  ],
+  "New Hanover": [
+    {
+      "name": "Carolina Beach",
+      "rate": 0.235
+    },
+    {
+      "name": "Kure Beach",
+      "rate": 0.29
+    },
+    {
+      "name": "Wilmington",
+      "rate": 0.42
+    },
+    {
+      "name": "Wrightsville Beach",
+      "rate": 0.0923
+    }
+  ],
+  "Orange": [
+    {
+      "name": "Carrboro",
+      "rate": 0.6044
+    },
+    {
+      "name": "Chapel Hill",
+      "rate": 0.592
+    },
+    {
+      "name": "Hillsborough",
+      "rate": 0.607
+    }
+  ],
+  "Mecklenburg": [
+    {
+      "name": "Charlotte",
+      "rate": 0.2741
+    },
+    {
+      "name": "Cornelius",
+      "rate": 0.1731
+    },
+    {
+      "name": "Davidson",
+      "rate": 0.266
+    },
+    {
+      "name": "Huntersville",
+      "rate": 0.2275
+    },
+    {
+      "name": "Matthews",
+      "rate": 0.2665
+    },
+    {
+      "name": "Mint Hill",
+      "rate": 0.225
+    },
+    {
+      "name": "Pineville",
+      "rate": 0.285
+    }
+  ],
+  "Rowan": [
+    {
+      "name": "China Grove",
+      "rate": 0.56
+    },
+    {
+      "name": "Cleveland",
+      "rate": 0.3
+    },
+    {
+      "name": "East Spencer",
+      "rate": 0.86
+    },
+    {
+      "name": "Faith",
+      "rate": 0.41
+    },
+    {
+      "name": "Granite Quarry",
+      "rate": 0.44
+    },
+    {
+      "name": "Landis",
+      "rate": 0.49
+    },
+    {
+      "name": "Rockwell",
+      "rate": 0.55
+    },
+    {
+      "name": "Salisbury",
+      "rate": 0.665
+    },
+    {
+      "name": "Spencer",
+      "rate": 0.605
+    }
+  ],
+  "Tyrrell": [
+    {
+      "name": "Columbia",
+      "rate": 0.72
+    }
+  ],
+  "Polk": [
+    {
+      "name": "Columbus",
+      "rate": 0.5375
+    },
+    {
+      "name": "Saluda",
+      "rate": 0.7
+    },
+    {
+      "name": "Tryon",
+      "rate": 0.6846
+    }
+  ],
+  "Cabarrus": [
+    {
+      "name": "Concord",
+      "rate": 0.42
+    },
+    {
+      "name": "Harrisburg",
+      "rate": 0.41
+    },
+    {
+      "name": "Kannapolis",
+      "rate": 0.5595
+    },
+    {
+      "name": "Midland",
+      "rate": 0.2
+    },
+    {
+      "name": "Mount Pleasant",
+      "rate": 0.39
+    }
+  ],
+  "Edgecombe": [
+    {
+      "name": "Conetoe",
+      "rate": 0.45
+    },
+    {
+      "name": "Leggett",
+      "rate": 0.25
+    },
+    {
+      "name": "Macclesfield",
+      "rate": 0.37
+    },
+    {
+      "name": "Pinetops",
+      "rate": 0.58
+    },
+    {
+      "name": "Princeville",
+      "rate": 0.61
+    },
+    {
+      "name": "Speed",
+      "rate": 0.38
+    },
+    {
+      "name": "Tarboro",
+      "rate": 0.42
+    }
+  ],
+  "Burke": [
+    {
+      "name": "Connelly Springs",
+      "rate": 0.05
+    },
+    {
+      "name": "Drexel",
+      "rate": 0.35
+    },
+    {
+      "name": "Glen Alpine",
+      "rate": 0.26
+    },
+    {
+      "name": "Hildebran",
+      "rate": 0.15
+    },
+    {
+      "name": "Morganton",
+      "rate": 0.5
+    },
+    {
+      "name": "Rhodhiss",
+      "rate": 0.525
+    },
+    {
+      "name": "Rutherford College",
+      "rate": 0.12
+    },
+    {
+      "name": "Valdese",
+      "rate": 0.415
+    }
+  ],
+  "Northampton": [
+    {
+      "name": "Conway",
+      "rate": 0.47
+    },
+    {
+      "name": "Garysburg",
+      "rate": 0.6
+    },
+    {
+      "name": "Gaston",
+      "rate": 0.55
+    },
+    {
+      "name": "Jackson",
+      "rate": 0.575
+    },
+    {
+      "name": "Lasker",
+      "rate": 0.25
+    },
+    {
+      "name": "Rich Square",
+      "rate": 0.75
+    },
+    {
+      "name": "Seaboard",
+      "rate": 0.5
+    },
+    {
+      "name": "Severn",
+      "rate": 0.35
+    },
+    {
+      "name": "Woodland",
+      "rate": 0.645
+    }
+  ],
+  "Washington": [
+    {
+      "name": "Creswell",
+      "rate": 0.5
+    },
+    {
+      "name": "Plymouth",
+      "rate": 0.54
+    },
+    {
+      "name": "Roper",
+      "rate": 0.82
+    }
+  ],
+  "Stokes": [
+    {
+      "name": "Danbury",
+      "rate": 0.27
+    },
+    {
+      "name": "King",
+      "rate": 0.47
+    },
+    {
+      "name": "Walnut Cove",
+      "rate": 0.4
+    }
+  ],
+  "Davidson": [
+    {
+      "name": "Denton",
+      "rate": 0.6
+    },
+    {
+      "name": "Lexington",
+      "rate": 0.65
+    },
+    {
+      "name": "Midway",
+      "rate": 0.05
+    },
+    {
+      "name": "Thomasville",
+      "rate": 0.62
+    },
+    {
+      "name": "Wallburg",
+      "rate": 0.05
+    }
+  ],
+  "Jackson": [
+    {
+      "name": "Dillsboro",
+      "rate": 0.23
+    },
+    {
+      "name": "Forest Hills",
+      "rate": 0.15
+    },
+    {
+      "name": "Sylva",
+      "rate": 0.45
+    },
+    {
+      "name": "Webster",
+      "rate": 0.15
+    }
+  ],
+  "Richmond": [
+    {
+      "name": "Dobbins Heights",
+      "rate": 0.6
+    },
+    {
+      "name": "Ellerbe",
+      "rate": 0.7
+    },
+    {
+      "name": "Hamlet",
+      "rate": 0.76
+    },
+    {
+      "name": "Hoffman",
+      "rate": 0.4
+    },
+    {
+      "name": "Norman",
+      "rate": 0.0
+    },
+    {
+      "name": "Rockingham",
+      "rate": 0.55
+    }
+  ],
+  "Surry": [
+    {
+      "name": "Dobson",
+      "rate": 0.43
+    },
+    {
+      "name": "Elkin",
+      "rate": 0.55
+    },
+    {
+      "name": "Mount Airy",
+      "rate": 0.6
+    },
+    {
+      "name": "Pilot Mountain",
+      "rate": 0.57
+    }
+  ],
+  "Dare": [
+    {
+      "name": "Duck",
+      "rate": 0.25
+    },
+    {
+      "name": "Kill Devil Hills",
+      "rate": 0.355
+    },
+    {
+      "name": "Kitty Hawk",
+      "rate": 0.3
+    },
+    {
+      "name": "Manteo",
+      "rate": 0.3455
+    },
+    {
+      "name": "Nags Head",
+      "rate": 0.33
+    },
+    {
+      "name": "Southern Shores",
+      "rate": 0.2358
+    }
+  ],
+  "Durham": [
+    {
+      "name": "Durham",
+      "rate": 0.5962
+    }
+  ],
+  "Cumberland": [
+    {
+      "name": "Eastover",
+      "rate": 0.255
+    },
+    {
+      "name": "Falcon",
+      "rate": 0.24
+    },
+    {
+      "name": "Fayetteville",
+      "rate": 0.5795
+    },
+    {
+      "name": "Godwin",
+      "rate": 0.24
+    },
+    {
+      "name": "Hope Mills",
+      "rate": 0.51
+    },
+    {
+      "name": "Linden",
+      "rate": 0.4
+    },
+    {
+      "name": "Spring Lake",
+      "rate": 0.741
+    },
+    {
+      "name": "Stedman",
+      "rate": 0.32
+    },
+    {
+      "name": "Wade",
+      "rate": 0.32
+    }
+  ],
+  "Rockingham": [
+    {
+      "name": "Eden",
+      "rate": 0.52
+    },
+    {
+      "name": "Madison",
+      "rate": 0.7
+    },
+    {
+      "name": "Mayodan",
+      "rate": 0.665
+    },
+    {
+      "name": "Reidsville",
+      "rate": 0.66
+    },
+    {
+      "name": "Stoneville",
+      "rate": 0.69
+    },
+    {
+      "name": "Wentworth",
+      "rate": 0.0
+    }
+  ],
+  "Chowan": [
+    {
+      "name": "Edenton",
+      "rate": 0.43
+    }
+  ],
+  "Pasquotank": [
+    {
+      "name": "Elizabeth City",
+      "rate": 0.59
+    }
+  ],
+  "Halifax": [
+    {
+      "name": "Enfield",
+      "rate": 0.927
+    },
+    {
+      "name": "Halifax",
+      "rate": 0.62
+    },
+    {
+      "name": "Hobgood",
+      "rate": 0.72
+    },
+    {
+      "name": "Littleton",
+      "rate": 0.69
+    },
+    {
+      "name": "Roanoke Rapids",
+      "rate": 0.641
+    },
+    {
+      "name": "Scotland Neck",
+      "rate": 0.73
+    },
+    {
+      "name": "Weldon",
+      "rate": 0.72
+    }
+  ],
+  "Robeson": [
+    {
+      "name": "Fairmont",
+      "rate": 0.73
+    },
+    {
+      "name": "Lumber Bridge",
+      "rate": 0.35
+    },
+    {
+      "name": "Lumberton",
+      "rate": 0.62
+    },
+    {
+      "name": "Marietta",
+      "rate": 0.0
+    },
+    {
+      "name": "Maxton",
+      "rate": 0.8
+    },
+    {
+      "name": "McDonald",
+      "rate": 0.05
+    },
+    {
+      "name": "Orrum",
+      "rate": 0.18
+    },
+    {
+      "name": "Parkton",
+      "rate": 0.5
+    },
+    {
+      "name": "Pembroke",
+      "rate": 0.64
+    },
+    {
+      "name": "Proctorville",
+      "rate": 0.2
+    },
+    {
+      "name": "Raynham",
+      "rate": 0.05
+    },
+    {
+      "name": "Red Springs",
+      "rate": 0.64
+    },
+    {
+      "name": "Rennert",
+      "rate": 0.1
+    },
+    {
+      "name": "Rowland",
+      "rate": 0.83
+    },
+    {
+      "name": "St. Pauls",
+      "rate": 0.65
+    }
+  ],
+  "Union": [
+    {
+      "name": "Fairview",
+      "rate": 0.02
+    },
+    {
+      "name": "Hemby Bridge",
+      "rate": 0.0
+    },
+    {
+      "name": "Indian Trail",
+      "rate": 0.185
+    },
+    {
+      "name": "Lake Park",
+      "rate": 0.2125
+    },
+    {
+      "name": "Marshville",
+      "rate": 0.55
+    },
+    {
+      "name": "Marvin",
+      "rate": 0.08
+    },
+    {
+      "name": "Mineral Springs",
+      "rate": 0.021
+    },
+    {
+      "name": "Monroe",
+      "rate": 0.5025
+    },
+    {
+      "name": "Stallings",
+      "rate": 0.216
+    },
+    {
+      "name": "Unionville",
+      "rate": 0.02
+    },
+    {
+      "name": "Waxhaw",
+      "rate": 0.385
+    },
+    {
+      "name": "Weddington",
+      "rate": 0.025
+    },
+    {
+      "name": "Wesley Chapel",
+      "rate": 0.0165
+    },
+    {
+      "name": "Wingate",
+      "rate": 0.34
+    }
+  ],
+  "Henderson": [
+    {
+      "name": "Flat Rock",
+      "rate": 0.119
+    },
+    {
+      "name": "Fletcher",
+      "rate": 0.28
+    },
+    {
+      "name": "Hendersonville",
+      "rate": 0.52
+    },
+    {
+      "name": "Laurel Park",
+      "rate": 0.395
+    },
+    {
+      "name": "Mills River",
+      "rate": 0.17
+    }
+  ],
+  "Graham": [
+    {
+      "name": "Fontana Dam",
+      "rate": 0.554
+    },
+    {
+      "name": "Lake Santeetlah",
+      "rate": 0.209
+    },
+    {
+      "name": "Robbinsville",
+      "rate": 0.5
+    }
+  ],
+  "Macon": [
+    {
+      "name": "Franklin",
+      "rate": 0.33
+    },
+    {
+      "name": "Highlands",
+      "rate": 0.1022
+    }
+  ],
+  "Wayne": [
+    {
+      "name": "Fremont",
+      "rate": 0.7
+    },
+    {
+      "name": "Goldsboro",
+      "rate": 0.825
+    },
+    {
+      "name": "Mount Olive",
+      "rate": 0.75
+    },
+    {
+      "name": "Pikeville",
+      "rate": 0.69
+    },
+    {
+      "name": "Seven Springs",
+      "rate": 0.54
+    },
+    {
+      "name": "Walnut Creek",
+      "rate": 0.48
+    }
+  ],
+  "Gates": [
+    {
+      "name": "Gatesville",
+      "rate": 0.17
+    }
+  ],
+  "Scotland": [
+    {
+      "name": "Gibson",
+      "rate": 0.73
+    },
+    {
+      "name": "Laurinburg",
+      "rate": 0.4
+    },
+    {
+      "name": "Wagram",
+      "rate": 0.65
+    }
+  ],
+  "Guilford": [
+    {
+      "name": "Gibsonville",
+      "rate": 0.49
+    },
+    {
+      "name": "Greensboro",
+      "rate": 0.6725
+    },
+    {
+      "name": "High Point",
+      "rate": 0.6475
+    },
+    {
+      "name": "Jamestown",
+      "rate": 0.625
+    },
+    {
+      "name": "Oak Ridge",
+      "rate": 0.08
+    },
+    {
+      "name": "Pleasant Garden",
+      "rate": 0.08
+    },
+    {
+      "name": "Sedalia",
+      "rate": 0.275
+    },
+    {
+      "name": "Stokesdale",
+      "rate": 0.0
+    },
+    {
+      "name": "Summerfield",
+      "rate": 0.0275
+    },
+    {
+      "name": "Whitsett",
+      "rate": 0.15
+    }
+  ],
+  "Chatham": [
+    {
+      "name": "Goldston",
+      "rate": 0.25
+    },
+    {
+      "name": "Pittsboro",
+      "rate": 0.44
+    },
+    {
+      "name": "Siler City",
+      "rate": 0.54
+    }
+  ],
+  "Iredell": [
+    {
+      "name": "Harmony",
+      "rate": 0.13
+    },
+    {
+      "name": "Love Valley",
+      "rate": 0.25
+    },
+    {
+      "name": "Mooresville",
+      "rate": 0.4836
+    },
+    {
+      "name": "Statesville",
+      "rate": 0.5176
+    },
+    {
+      "name": "Troutman",
+      "rate": 0.5
+    }
+  ],
+  "Clay": [
+    {
+      "name": "Hayesville",
+      "rate": 0.265
+    }
+  ],
+  "Vance": [
+    {
+      "name": "Henderson",
+      "rate": 0.65
+    },
+    {
+      "name": "Kittrell",
+      "rate": 0.14
+    },
+    {
+      "name": "Middleburg",
+      "rate": 0.4
+    }
+  ],
+  "Perquimans": [
+    {
+      "name": "Hertford",
+      "rate": 0.52
+    },
+    {
+      "name": "Winfall",
+      "rate": 0.56
+    }
+  ],
+  "Onslow": [
+    {
+      "name": "Holly Ridge",
+      "rate": 0.34
+    },
+    {
+      "name": "Jacksonville",
+      "rate": 0.6
+    },
+    {
+      "name": "North Topsail Beach",
+      "rate": 0.43
+    },
+    {
+      "name": "Richlands",
+      "rate": 0.38
+    },
+    {
+      "name": "Swansboro",
+      "rate": 0.35
+    }
+  ],
+  "Greene": [
+    {
+      "name": "Hookerton",
+      "rate": 0.465
+    },
+    {
+      "name": "Snow Hill",
+      "rate": 0.34
+    },
+    {
+      "name": "Walstonburg",
+      "rate": 0.5
+    }
+  ],
+  "Madison": [
+    {
+      "name": "Hot Springs",
+      "rate": 0.45
+    },
+    {
+      "name": "Mars Hill",
+      "rate": 0.34
+    },
+    {
+      "name": "Marshall",
+      "rate": 0.355
+    }
+  ],
+  "Ashe": [
+    {
+      "name": "Jefferson",
+      "rate": 0.31
+    },
+    {
+      "name": "Lansing",
+      "rate": 0.36
+    },
+    {
+      "name": "West Jefferson",
+      "rate": 0.35
+    }
+  ],
+  "Lenoir": [
+    {
+      "name": "Kinston",
+      "rate": 0.77
+    },
+    {
+      "name": "La Grange",
+      "rate": 0.532
+    },
+    {
+      "name": "Pink Hill",
+      "rate": 0.55
+    }
+  ],
+  "Lincoln": [
+    {
+      "name": "Lincolnton",
+      "rate": 0.5
+    }
+  ],
+  "Warren": [
+    {
+      "name": "Macon",
+      "rate": 0.3
+    },
+    {
+      "name": "Norlina",
+      "rate": 0.74
+    },
+    {
+      "name": "Warrenton",
+      "rate": 0.76
+    }
+  ],
+  "McDowell": [
+    {
+      "name": "Marion",
+      "rate": 0.595
+    },
+    {
+      "name": "Old Fort",
+      "rate": 0.42
+    }
+  ],
+  "Jones": [
+    {
+      "name": "Maysville",
+      "rate": 0.5
+    },
+    {
+      "name": "Pollocksville",
+      "rate": 0.34
+    },
+    {
+      "name": "Trenton",
+      "rate": 0.35
+    }
+  ],
+  "Caswell": [
+    {
+      "name": "Milton",
+      "rate": 0.45
+    },
+    {
+      "name": "Yanceyville",
+      "rate": 0.3
+    }
+  ],
+  "Wilkes": [
+    {
+      "name": "North Wilkesboro",
+      "rate": 0.52
+    },
+    {
+      "name": "Ronda",
+      "rate": 0.35
+    },
+    {
+      "name": "Wilkesboro",
+      "rate": 0.48
+    }
+  ],
+  "Hoke": [
+    {
+      "name": "Raeford",
+      "rate": 0.48
+    }
+  ],
+  "Person": [
+    {
+      "name": "Roxboro",
+      "rate": 0.8
+    }
+  ],
+  "Alleghany": [
+    {
+      "name": "Sparta",
+      "rate": 0.39
+    }
+  ],
+  "Alexander": [
+    {
+      "name": "Taylorsville",
+      "rate": 0.35
+    }
+  ]
+}
