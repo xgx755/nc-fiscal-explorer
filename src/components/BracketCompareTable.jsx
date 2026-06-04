@@ -1,13 +1,13 @@
 import { Fragment } from 'react'
 import { TAX_ROWS, getTaxQualityFlag, formatCurrency } from '../lib/taxUtils'
 
-const FEDERAL_NOTICE = 'Estimated from national averages — does not vary by county.'
+const FEDERAL_NOTICE = 'Estimated from national averages; does not vary by county.'
 
 const INTERPRETIVE = {
   property_tax:
-    'Property tax burden varies because home values differ by income bracket — higher-income households own more valuable homes, but the rate applies to assessed value, not income.',
+    'Property tax burden varies because home values differ by income bracket: higher-income households own more valuable homes, but the rate applies to assessed value, not income.',
   sales_tax_state:
-    'Sales tax takes a larger share of income for lower-earning households because they spend a higher fraction of their income on taxable goods — economists call this regressivity.',
+    'Sales tax takes a larger share of income for lower-earning households because they spend a higher fraction of their income on taxable goods; economists call this regressivity.',
   state_income_tax:
     "NC's flat rate means similar effective rates across income levels, but the standard deduction provides some relief at lower incomes.",
 }
@@ -61,7 +61,7 @@ export default function BracketCompareTable({ record1, record2, bracket1, bracke
 
   return (
     <div className="compare-wrap">
-      <h3 className="compare-title">Bracket Comparison — {housing === 'owner' ? 'Homeowner' : 'Renter'}</h3>
+      <h3 className="compare-title">Bracket Comparison: {housing === 'owner' ? 'Homeowner' : 'Renter'}</h3>
       <div className="compare-table-scroll">
         <table className="compare-table">
           <caption className="sr-only">Side-by-side tax burden comparison by income bracket</caption>
@@ -125,7 +125,7 @@ export default function BracketCompareTable({ record1, record2, bracket1, bracke
       </div>
       {hasEstimated && (
         <p className="flag-footnote">
-          * Estimate less reliable for this income bracket — see{' '}
+          * Estimate less reliable for this income bracket. See{' '}
           <a href="#methodology">methodology</a> for details.
         </p>
       )}

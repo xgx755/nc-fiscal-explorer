@@ -71,7 +71,7 @@ export default function WhoFundsWhat() {
         <div className="wfw-header">
           <h2 className="wfw-heading" id="wfw-heading">Who Funds What?</h2>
           <p className="wfw-subhead">
-            How major public services are financed across levels of government — statewide averages, approximate.
+            How major public services are financed across levels of government. Statewide averages, approximate.
             The mix determines <em>which</em> level of government your taxes support and which level controls spending decisions.
           </p>
         </div>
@@ -94,7 +94,7 @@ export default function WhoFundsWhat() {
 
         <p className="wfw-caveat">
           Percentages are approximate statewide averages for NC; county-level splits vary.
-          Sources: NCDPI, NC Office of State Budget and Management, NCDOT, NC Community College System, Medicaid.gov (SFY 2023).
+          Sources: NC Expenditures by Committee CSV (OSBM / Fiscal Research Division); USASpending.gov FY2025 Federal Account Balances (DATA Act); NC DST County AFIR FY2025. Percentages are approximate statewide averages derived via pipeline/government_spending.py.
         </p>
       </div>
     </section>

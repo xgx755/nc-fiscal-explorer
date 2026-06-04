@@ -177,7 +177,7 @@ export default function TaxToServices({ record, county, localAllocations, munici
       </div>
 
       <details className="tts-details">
-        <summary className="tts-details__summary">See detailed purpose breakdown</summary>
+        <summary className="tts-details__summary"><span className="tts-details__arrow">▼</span> See detailed purpose breakdown</summary>
 
         <div className="tts-purpose-list" role="list" aria-label="Tax to services by purpose">
           {rows.map(row => {
@@ -271,9 +271,8 @@ export default function TaxToServices({ record, county, localAllocations, munici
       </table>
 
       <p className="tts-note">
-        The chart groups spending by public purpose rather than by a generic catch-all list.
-        Where a source does not fit cleanly, it remains visible in the explicit residual bucket.
-        Sources: OSBM FY2024 (state), NC DST County AFIR FY2025 (local), OMB Table 3.2 FY2023 (federal).
+        The chart groups spending by public purpose.
+        Sources: NC Expenditures by Committee CSV (OSBM / Fiscal Research Division) (state), NC DST County AFIR FY2025 (local), USASpending.gov Federal Account Balances, DATA Act FY2025 (federal).
       </p>
     </section>
   )

@@ -8,12 +8,12 @@
  */
 
 import { createPortal } from 'react-dom'
-import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
-import { TAX_ROWS, getTaxQualityFlag, formatCurrency } from '../lib/taxUtils'
+import { Fragment, useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
+import { TAX_ROWS, getTaxQualityFlag, formatCurrency, BRACKET_INCOMES } from '../lib/taxUtils'
 import StateTaxTrendChart from './StateTaxTrendChart'
 
 const PAYROLL_CAVEAT =
-  "Employee share only. The employer's matching contribution (6.2% SS + 1.45% Medicare) is not shown — economists believe some portion falls on workers as lower wages, but this is contested and not modeled."
+  "Employee share only. The employer's matching contribution (6.2% SS + 1.45% Medicare) is not shown; economists believe some portion falls on workers as lower wages, but this is contested and not modeled."
 
 const RENTER_TOOLTIP =
   "Economists generally assume landlords pass property tax costs on to renters through higher rents. In weaker rental markets, landlords may absorb some of this cost, so this estimate may be slightly high."
@@ -121,7 +121,7 @@ function InlineReceipt({ taxKey, cell, income, housing, bracket, showTrend, onTo
     const localRatePct = cell.effective_rate > 0 ? (cell.effective_rate * 100).toFixed(2) : null
     const consumption = localRatePct ? Math.round(cell.annual_burden / (parseFloat(localRatePct) / 100)) : null
     rows = [
-      { label: 'County local add-on rate', value: localRatePct ? `${localRatePct}%` : '2.00% or 2.25%', note: 'NCDOR effective 7/1/2024 — either 2.00% or 2.25% depending on county' },
+      { label: 'County local add-on rate', value: localRatePct ? `${localRatePct}%` : '2.00% or 2.25%', note: 'NCDOR effective 7/1/2024: either 2.00% or 2.25% depending on county' },
       { label: 'Est. taxable consumption', value: consumption ? formatCurrency(consumption) : '—', note: 'BLS Consumer Expenditure Survey 2024' },
       { label: 'Formula', value: consumption && localRatePct ? `${localRatePct}% × ${formatCurrency(consumption)} = ${formatCurrency(Math.round(cell.annual_burden))}/yr` : '—', mono: true },
     ]
@@ -130,7 +130,7 @@ function InlineReceipt({ taxKey, cell, income, housing, bracket, showTrend, onTo
   if (taxKey === 'federal_income_tax') {
     const effPct = (cell.effective_rate * 100).toFixed(1)
     rows = [
-      { label: 'Effective rate (this bracket)', value: `${effPct}%`, note: 'National distributional average — identical for all NC counties' },
+      { label: 'Effective rate (this bracket)', value: `${effPct}%`, note: 'National distributional average, identical for all NC counties' },
       { label: 'Source', value: 'ITEP Who Pays Taxes in America 2024; IRS SOI 2022 Table 1.4' },
       { label: 'Formula', value: `${effPct}% × ${formatCurrency(income)} = ${formatCurrency(Math.round(cell.annual_burden))}/yr`, mono: true },
       { label: 'Note', value: 'Does not model itemized deductions, credits, capital gains, EITC, or AMT. Individual liability will differ.' },
@@ -298,11 +298,6 @@ function PayrollRows({ payrollCell, income, expanded, onToggle, receiptOpen, onR
             {expanded ? '▾' : '▸'}
           </button>
           {' '}Payroll taxes (employee share)
-        </td>
-        <td className="num-col">{formatCurrency(payrollCell.annual_burden)}</td>
-        <td className="num-col">{((payrollCell.annual_burden / income) * 100).toFixed(1)}%</td>
-        <td className="note-col">
-          <span className="federal-notice">Employee share only · Federal · County-invariant</span>
           <button
             type="button"
             className="receipt-toggle"
@@ -312,6 +307,11 @@ function PayrollRows({ payrollCell, income, expanded, onToggle, receiptOpen, onR
           >
             {receiptOpen ? '▲ Hide' : '▼ How?'}
           </button>
+        </td>
+        <td className="num-col">{formatCurrency(payrollCell.annual_burden)}</td>
+        <td className="num-col">{((payrollCell.annual_burden / income) * 100).toFixed(1)}%</td>
+        <td className="note-col">
+          <span className="federal-notice">Employee share only · Federal · County-invariant</span>
         </td>
       </tr>
       {expanded && (
@@ -383,8 +383,7 @@ export default function TaxBreakdownTable({
   if (!record) return null
 
   const { taxes, total, data_quality_flags: flags } = record
-  const income = total.annual_burden / (total.pct_income / 100)
-  const bracketIncome = Math.round(income)
+  const bracketIncome = BRACKET_INCOMES[bracket] ?? Math.round(total.annual_burden / (total.pct_income / 100))
 
   const v1Rows = TAX_ROWS.filter(r => !r.v2)
   const hasEstimated = v1Rows.some(row => getTaxQualityFlag(row.key, flags) === 'ESTIMATED')
@@ -417,11 +416,22 @@ export default function TaxBreakdownTable({
             const isOpen = expandedReceipt === row.key
 
             return (
-              <>
-                <tr key={row.key} className={`tax-row${isOpen ? ' tax-row--open' : ''}`}>
+              <Fragment key={row.key}>
+                <tr className={`tax-row${isOpen ? ' tax-row--open' : ''}`}>
                   <td>
                     {isRenterProp ? 'Property tax (passed through in rent)' : row.label}
                     {isRenterProp && <RenterTooltip />}
+                    {!suppressed && (
+                      <button
+                        type="button"
+                        className="receipt-toggle"
+                        aria-expanded={isOpen}
+                        onClick={() => toggleReceipt(row.key)}
+                        aria-label={`${isOpen ? 'Hide' : 'Show'} ${row.label} calculation`}
+                      >
+                        {isOpen ? '▲ Hide' : '▼ How?'}
+                      </button>
+                    )}
                   </td>
                   <td className="num-col">
                     {suppressed ? (
@@ -452,22 +462,10 @@ export default function TaxBreakdownTable({
                         County + {municipalLabel} city rate. Source: NC DST AFIR FY2025.
                       </span>
                     )}
-                    {!suppressed && (
-                      <button
-                        type="button"
-                        className="receipt-toggle"
-                        aria-expanded={isOpen}
-                        onClick={() => toggleReceipt(row.key)}
-                        aria-label={`${isOpen ? 'Hide' : 'Show'} ${row.label} calculation`}
-                      >
-                        {isOpen ? '▲ Hide' : '▼ How?'}
-                      </button>
-                    )}
                   </td>
                 </tr>
                 {isOpen && (
                   <InlineReceipt
-                    key={`receipt-${row.key}`}
                     taxKey={row.key}
                     cell={cell}
                     income={bracketIncome}
@@ -477,7 +475,7 @@ export default function TaxBreakdownTable({
                     onToggleTrend={() => setShowTrend(s => !s)}
                   />
                 )}
-              </>
+              </Fragment>
             )
           })}
 
@@ -503,7 +501,7 @@ export default function TaxBreakdownTable({
 
       {hasEstimated && (
         <p className="flag-footnote">
-          * Estimate less reliable for this income bracket — see{' '}
+          * Estimate less reliable for this income bracket. See{' '}
           <a href="#methodology">methodology</a> for details.
         </p>
       )}

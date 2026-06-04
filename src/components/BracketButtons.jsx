@@ -12,7 +12,7 @@ export default function BracketButtons({ value, onChange }) {
             className={`pill-btn${value === b.key ? ' pill-btn--active' : ''}`}
             onClick={() => onChange(b.key)}
             aria-pressed={value === b.key}
-            aria-label={`${b.label} — ${b.sublabel}`}
+            aria-label={`${b.label}: ${b.sublabel}`}
           >
             {b.label}
           </button>

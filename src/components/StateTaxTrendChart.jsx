@@ -126,7 +126,7 @@ export default function StateTaxTrendChart({ bracket }) {
       <p className="trend-title">{title}</p>
       <TrendSVG data={trend} />
       <p className="trend-caveat">
-        All other factors held constant at current values — only the tax rate and standard
+        All other factors held constant at current values; only the tax rate and standard
         deduction change year over year. Property tax rates, home values, and spending
         patterns are not varied historically.
       </p>

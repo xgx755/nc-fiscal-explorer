@@ -100,6 +100,7 @@ a:hover { color: var(--primary-mid); }
   transition: color 0.15s;
 }
 .nav-link:hover { color: var(--text); }
+.nav-link--active { color: var(--primary); font-weight: 600; border-bottom: 2px solid var(--primary); padding-bottom: 2px; }
 
 /* ── Main Content ───────────────────────────────────────────────────────── */
 .main-content { flex: 1; width: 100%; }
@@ -136,6 +137,19 @@ a:hover { color: var(--primary-mid); }
   text-transform: uppercase;
   color: var(--text-muted);
 }
+/* ── Hero (compact variant) ─────────────────────────────────────────────── */
+.hero--sm {
+  padding: 2rem var(--gutter) 1.5rem;
+}
+.hero--sm .hero-headline {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  margin-bottom: 0.75rem;
+}
+.hero--sm .hero-body {
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
 
 /* ── Controls Bar ───────────────────────────────────────────────────────── */
 .controls-bar {
@@ -160,7 +174,7 @@ a:hover { color: var(--primary-mid); }
   gap: 0.65rem;
 }
 .controls-summary {
-  text-align: center;
+  text-align: left;
   font-family: var(--font-sans);
   font-size: 14px;
   font-style: italic;
@@ -697,7 +711,7 @@ a:hover { color: var(--primary-mid); }
 .footer-inner {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 4rem var(--gutter);
+  padding: 2.5rem var(--gutter);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -737,52 +751,28 @@ a:hover { color: var(--primary-mid); }
   font-family: var(--font-sans);
 }
 
-/* ── Mobile ─────────────────────────────────────────────────────────────── */
-@media (max-width: 640px) {
-  .hero { padding: 2.5rem var(--gutter) 2rem; }
-  .hero-headline { font-size: 1.75rem; }
-  .hero-body { font-size: 16px; }
-  .metric-section { padding: 2.5rem 0 1rem; }
-  .wfw-row { grid-template-columns: 1fr; gap: 0.35rem; }
-  .wfw-label { padding-top: 0; }
-  .stacked-bar__legend { gap: 0.35rem 1rem; }
-  .tts-header,
-  .tts-purpose-card__head {
-    flex-direction: column;
-  }
-  .tts-purpose-card__totals {
-    text-align: left;
-  }
-  .tts-purpose-card__bar {
-    height: 14px;
-  }
-  .tts-purpose-card__chips {
-    gap: 0.4rem;
-  }
-  .tts-source-row {
-    grid-template-columns: 1fr auto;
-  }
-  .tts-summary__tiles {
-    grid-template-columns: 1fr;
-  }
-  .tts-summary__tile-amount {
-    font-size: 20px;
-  }
-}
+/* Old mobile block removed — see comprehensive overrides at end of file */
 
 /* ── V2: Your Taxes → Services (TaxToServices) ──────────────────────────── */
 .tts-section {
   max-width: var(--max-w);
   margin: 0 auto var(--section-gap);
-  padding: 0 var(--gutter);
+  padding: 2.5rem var(--gutter) 0;
 }
 .tts-header {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
+/* Override global section-heading when inside tts-header — no orphaned border */
+.tts-section .section-heading {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0.4rem;
+}
+
 .tts-subtitle {
   font-size: 14px;
   color: var(--text-secondary);
@@ -814,10 +804,10 @@ a:hover { color: var(--primary-mid); }
 }
 .tts-summary {
   border: 1px solid var(--border);
-  border-radius: 18px;
+  border-radius: 8px;
   background: var(--surface);
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 .tts-summary__bar {
   display: flex;
@@ -838,7 +828,7 @@ a:hover { color: var(--primary-mid); }
 }
 .tts-summary__tile {
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 6px;
   background: var(--bg);
   padding: 0.75rem;
 }
@@ -881,21 +871,34 @@ a:hover { color: var(--primary-mid); }
 }
 .tts-details {
   border: 1px solid var(--border);
-  border-radius: 18px;
+  border-radius: 8px;
   background: var(--surface);
   padding: 0.9rem 1rem 1rem;
 }
 .tts-details__summary {
   list-style: none;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
   font-size: 12px;
   font-weight: 700;
   color: var(--primary);
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  background: var(--primary-faint, rgba(59,130,246,0.07));
+  border: 1px solid var(--primary-faint, rgba(59,130,246,0.18));
+  border-radius: 20px;
+  padding: 0.3rem 0.75rem;
   margin-bottom: 0.9rem;
+  transition: background 0.15s, border-color 0.15s;
+  user-select: none;
+}
+.tts-details__summary:hover {
+  background: var(--primary-faint, rgba(59,130,246,0.13));
+  border-color: var(--primary);
 }
 .tts-details__summary::-webkit-details-marker { display: none; }
+details[open] .tts-details__arrow { display: inline-block; transform: rotate(180deg); }
+.tts-details__arrow { display: inline-block; transition: transform 0.2s; }
 .tts-purpose-list {
   display: flex;
   flex-direction: column;
@@ -903,7 +906,7 @@ a:hover { color: var(--primary-mid); }
 }
 .tts-purpose-card {
   border: 1px solid var(--border);
-  border-radius: 18px;
+  border-radius: 8px;
   background: var(--surface);
   padding: 1rem 1rem 0.9rem;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
@@ -1439,12 +1442,190 @@ a:hover { color: var(--primary-mid); }
   text-decoration: underline;
 }
 
-@media (max-width: 480px) {
+/* Old 480px block removed — see comprehensive overrides at end of file */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MOBILE OVERRIDES (comprehensive)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Reduce global spacing on small screens ─────────────────────────────── */
+@media (max-width: 640px) {
+  :root {
+    --section-gap: 2.5rem;
+    --gutter: 1rem;
+  }
+
+  /* ── Header ── */
+  .site-brand {
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    /* Allow it to shrink if needed */
+    max-width: 160px;
+    white-space: normal;
+    line-height: 1.3;
+  }
+  .site-nav { gap: 0.75rem; }
+  .nav-link { font-size: 12px; }
+
+  /* ── Hero ── */
+  .hero { padding: 2rem var(--gutter) 1.5rem; }
+  .hero-headline { font-size: 1.6rem; }
+  .hero-body { font-size: 15px; }
+
+  /* ── Controls bar: un-stick on mobile so it doesn't eat viewport ── */
+  .controls-bar { position: static; }
+
+  /* Tighter inner padding */
+  .controls-bar__inner { padding: 0.75rem var(--gutter); }
+
+  /* Each control row item gets full-width grouping hints */
+  .controls-row {
+    gap: 0.5rem;
+    /* Let the county dropdown + housing toggle share first line,
+       bracket buttons flow to next, municipality to its own */
+    align-items: flex-start;
+  }
+
+  /* Pill controls: slightly smaller tap targets are fine — 32px minimum */
+  .pill-btn, .pill-toggle__btn, .pill-select {
+    font-size: 12px;
+    padding: 0.28rem 0.75rem;
+  }
+  .pill-toggle__btn { padding: 0.28rem 0.75rem; }
+
+  /* ── Metric section ── */
+  .metric-section { padding: 2rem 0 0.75rem; }
+  .metric-callout { font-size: clamp(1.75rem, 8vw, 2.25rem); }
+
+  /* ── Section heading ── */
+  .section-heading { font-size: 18px; }
+
+  /* ── Breakdown table: hide note column, tighten layout ── */
+  .breakdown-table { font-size: 13px; }
+  .breakdown-table th,
+  .breakdown-table td { padding: 0.55rem 0.35rem; }
+  .breakdown-table .note-col { display: none; }
+
+  /* How? toggle moves to label cell on mobile — give it its own line */
+  .breakdown-table td .receipt-toggle {
+    display: block;
+    padding: 0.15rem 0 0;
+  }
+
+  /* ── Compare table: tighten; horizontal scroll already in place ── */
+  .compare-table { font-size: 12px; }
+  .compare-table th,
+  .compare-table td { padding: 0.4rem 0.3rem; }
+
+  /* ── Compare picker ── */
+  .compare-picker { gap: 0.5rem; }
+  .compare-picker__label { font-size: 10px; }
+
+  /* ── WhoFundsWhat ── */
+  .wfw-row { grid-template-columns: 1fr; gap: 0.35rem; }
+  .wfw-label { padding-top: 0; }
+  .wfw-legend { flex-wrap: wrap; gap: 0.5rem; }
+  .wfw-panel { padding: 2rem 0 1.5rem; }
+
+  /* ── TaxToServices ── */
+  .tts-section { padding: 1.5rem var(--gutter) 0; }
+  .tts-header { flex-direction: column; }
+  .tts-purpose-card__head { flex-direction: column; }
+  .tts-purpose-card__totals { text-align: left; }
+  .tts-purpose-card__bar { height: 14px; }
+  .tts-purpose-card__chips { gap: 0.4rem; }
+  .tts-source-row { grid-template-columns: 1fr auto; }
+  .tts-summary__tiles { grid-template-columns: 1fr; }
+  .tts-summary__tile-amount { font-size: 20px; }
+  .tts-legend { justify-content: flex-start; }
+
+  /* ── Stacked bar legend ── */
+  .stacked-bar__legend { gap: 0.35rem 1rem; }
+  .stacked-bar { height: 48px; }
+
+  /* ── Methodology ── */
+  .meth-section { padding: 0 var(--gutter) 2rem; }
+
+  /* ── Footer ── */
+  .footer-inner { padding: 2.5rem var(--gutter); gap: 0.75rem; }
+  .footer-nav { flex-wrap: wrap; justify-content: center; gap: 0.75rem 1.25rem; }
+
+  /* ── Receipt panel ── */
+  .receipt-panel { padding: 0.65rem 0.9rem 0.65rem; }
   .receipt-item {
     grid-template-columns: 1fr;
     gap: 0.1rem;
   }
-  .receipt-label {
-    font-size: 10.5px;
-  }
+  .receipt-label { font-size: 10.5px; }
 }
+
+/* ── Very small screens (≤400px) ────────────────────────────────────────── */
+@media (max-width: 400px) {
+  .site-brand { display: none; }
+
+  /* Stack controls fully */
+  .controls-row { flex-direction: column; align-items: flex-start; }
+
+  /* Full-width dropdowns */
+  .ss-input { min-width: 0; max-width: 100%; width: 100%; }
+  .ss-wrap { width: 100%; }
+  .pill-select { width: 100%; max-width: 100%; }
+
+  /* Housing toggle stretches */
+  .pill-toggle { width: 100%; justify-content: center; }
+
+  /* Bracket buttons: 2-column grid */
+  .bracket-buttons {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+  }
+  .bracket-buttons .pill-btn { text-align: center; }
+
+  /* Municipality wrap */
+  .muni-dropdown-wrap { width: 100%; }
+}
+
+/* ── Spending CTA ───────────────────────────────────────────────────────── */
+.spending-cta {
+  margin-top: 2rem;
+  text-align: center;
+}
+.spending-cta__link {
+  display: inline-block;
+  padding: 0.65rem 1.5rem;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+.spending-cta__link:hover { background: var(--primary-mid); color: #fff; }
+.spending-cta--methodology {
+  border-top: 1px solid var(--border);
+  margin-top: 0;
+  padding: 2.5rem var(--gutter) 3rem;
+  max-width: var(--max-w);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Change-profile link ────────────────────────────────────────────────── */
+.change-link {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-style: inherit;
+  color: var(--primary);
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.15s;
+}
+.change-link:hover { text-decoration-color: var(--primary); }
+.change-link:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 2px; }

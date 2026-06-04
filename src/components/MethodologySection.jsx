@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function Section({ title, children }) {
   return (
@@ -17,8 +18,8 @@ function LimitationList({ items }) {
   )
 }
 
-export default function MethodologySection() {
-  const [open, setOpen] = useState(false)
+export default function MethodologySection({ defaultOpen = false }) {
+  const [open, setOpen] = useState(defaultOpen)
 
   return (
     <section className="meth-section" id="methodology" aria-labelledby="meth-heading">
@@ -66,15 +67,15 @@ export default function MethodologySection() {
               finance incidence assumption). Rental unit value estimated as annual gross rent ÷ 6% cap rate.
             </p>
             <p>
-              <strong>Municipal overlay (V2):</strong> If a municipality is selected, the city property tax rate
+              <strong>Municipal overlay:</strong> If a municipality is selected, the city property tax rate
               (NC DST AFIR FY2025, Row 100) is applied to the same estimated home value used for the county rate.
               The home value is back-calculated from the county burden and the stored county rate.
               Source: NC DST Annual Financial Information Reports FY2025.
             </p>
             <LimitationList items={[
-              'County-only rate by default; municipal overlay added in V2 for 535 of 549 NC municipalities.',
+              'County-only rate by default; municipal overlay available for 535 of 549 NC municipalities.',
               'Assessed values may differ from market values depending on county revaluation cycle.',
-              'The $25K bracket multiplier (0.72×) uses a statewide average — in high-cost counties, low-income long-time homeowners may own higher-value property.',
+              'The $25K bracket multiplier (0.72×) uses a statewide average. In high-cost counties, low-income long-time homeowners may own higher-value property.',
               'The $200K+ multiplier (1.95×) is estimated from PUMS research.',
               'The 6% cap rate for renters is a national average; county cap rates vary.',
               'Municipal "dominant county" assignment follows NC DST AFIR; a handful of municipalities straddling county lines are assigned to their dominant county.',
@@ -90,11 +91,11 @@ export default function MethodologySection() {
               'Uses single-filer standard deduction. Married filers receive a $26,000 deduction.',
               'Does not model itemized deductions, credits, or non-wage income.',
               'NC has no state Earned Income Tax Credit.',
-              'Does not vary by county — correct, NC income tax is statewide.',
+              'Does not vary by county. NC income tax is statewide.',
             ]} />
           </Section>
 
-          <Section title="Historical NC Income Tax Rates (V2)">
+          <Section title="Historical NC Income Tax Rates">
             <p>
               The trend chart on the state income tax row shows estimated annual burden for the selected bracket
               across tax years 2020–2026, reflecting the legislated phasedown of NC's flat rate:
@@ -111,12 +112,12 @@ export default function MethodologySection() {
               </tbody>
             </table>
             <p>
-              Sources: NCDOR rate schedules; NCGS § 105-153.7. V2 shows confirmed historical years (2020–2026) only.
+              Sources: NCDOR rate schedules; NCGS § 105-153.7. Confirmed historical years (2020–2026) only.
               Projected future reductions (2027–2028) require annual legislative confirmation and are not shown.
             </p>
             <LimitationList items={[
               'The trend isolates rate and standard deduction changes. All other factors (property values, spending patterns, county rates) are held constant at current values.',
-              'This is not a year-over-year tax return comparison — it shows what a household at the current bracket would have paid under each year\'s parameters.',
+              'This is not a year-over-year tax return comparison; it shows what a household at the current bracket would have paid under each year\'s parameters.',
             ]} />
           </Section>
 
@@ -143,11 +144,11 @@ export default function MethodologySection() {
             <LimitationList items={[
               'National averages only.',
               'Does not model itemized deductions, investment income, capital gains, EITC, Child Tax Credit, or AMT.',
-              'Payroll taxes (employee share) are modeled separately — see below.',
+              'Payroll taxes (employee share) are modeled separately. See below.',
             ]} />
           </Section>
 
-          <Section title="Payroll Taxes — Employee Share (V2)">
+          <Section title="Payroll Taxes: Employee Share">
             <p>
               Models employee-side Social Security and Medicare taxes for 2026.
               Formula: SS = <code>min(income, $176,100) × 6.2%</code>; Medicare = <code>income × 1.45%</code>.
@@ -157,51 +158,49 @@ export default function MethodologySection() {
             <p>
               <strong>Employee share only.</strong> The employer's matching contribution (6.2% SS + 1.45% Medicare)
               is not modeled. Economists believe some portion of the employer share falls on workers via lower wages,
-              but this is contested and the methodology is non-trivial. Employer-side incidence is deferred to V3.
+              but this is contested and the methodology is non-trivial.
             </p>
             <LimitationList items={[
               'Models wage income only. Self-employment tax (15.3%, combining both sides) is higher in structure and not modeled.',
               'County-invariant: payroll taxes are federal and do not vary by location.',
               'SS wage base: $176,100 for 2026 (SSA COLA announcement, Oct 2025). Updated annually.',
-              'At the $25K bracket, employee payroll taxes (~$1,912) exceed federal income tax (~$375) — this is the primary V1 omission this feature corrects.',
             ]} />
           </Section>
 
-          <Section title="Your Taxes → Services (V2 — F1 + F6)">
+          <Section title="Your Taxes → Services">
             <p>
               Crosses user tax burden by level × budget allocation shares to estimate dollars flowing
               to each public service. Formula: <code>(local_taxes × local_pct) + (state_taxes × state_pct) + (federal_taxes × federal_pct)</code>.
             </p>
             <p>
-              <strong>Local allocations (F6):</strong> County-specific values from NC DST County AFIR FY2025.
+              <strong>Local allocations:</strong> County-specific values from NC DST County AFIR FY2025.
               78 of 100 NC counties have direct data; 22 missing counties use a statewide weighted-average fallback.
               Missing counties are flagged with an asterisk.
             </p>
             <p>
-              <strong>State allocations:</strong> NC OSBM FY2024 Budget Summary (K–12 38%, Human Services 20%,
+              <strong>State allocations:</strong> NC Expenditures by Committee CSV (OSBM / Fiscal Research Division): K–12 38%, Human Services 20%,
               Roads 9%, Community Colleges 7%, Other 26%).
             </p>
             <p>
-              <strong>State and federal Other drill-down (V3):</strong> state detail uses NC OSBM committee
-              expenditures; federal detail uses USAspending budget-function obligations. The drill-down now
-              itemizes the major state and federal components instead of showing a single combined line.
+              <strong>State and federal detail:</strong> State detail uses NC OSBM committee expenditures;
+              federal detail uses USAspending budget-function obligations. Major components are itemized
+              rather than rolled into a single combined line.
             </p>
             <LimitationList items={[
-              '"Human Services (incl. Medicaid)" at the local level reflects county DSS, Medicaid contributions, mental health, and all related programs — not Medicaid alone.',
+              '"Human Services (incl. Medicaid)" at the local level reflects county DSS, Medicaid contributions, mental health, and all related programs, not Medicaid alone.',
               'Local road spending is embedded in "All Other" in the AFIR; roads allocation is 0 at the local level.',
               'All percentages are approximate. The tool is a guide, not a line-item budget reconciliation.',
-              'V2 corrects a structural error in the original spec\'s local allocation estimates (K–12 was overstated at 52%; AFIR-derived actual is 28.2% statewide average).',
             ]} />
           </Section>
 
-          <Section title="Policy Simulation (V2 — F4)">
+          <Section title="Policy Simulation">
             <p>
               The "What if?" panel adjusts NC state income tax parameters to show the dollar impact on a
               representative household. Two inputs: NC flat rate (0–8%) and standard deduction ($0–$30,000).
             </p>
             <p>
               <strong>This is a simulation, not a projection or forecast.</strong> It shows how a representative
-              household at the selected bracket would be affected by the chosen parameters — not any specific
+              household at the selected bracket would be affected by the chosen parameters, not any specific
               individual's tax liability. The simulation does not model itemized deductions, credits, or
               income types beyond the bracket income.
             </p>
@@ -212,7 +211,7 @@ export default function MethodologySection() {
             ]} />
           </Section>
 
-          <Section title="Municipal Tax Rates (V2 — F5)">
+          <Section title="Municipal Tax Rates">
             <p>
               Municipal property tax rates from NC DST Annual Financial Information Reports (AFIR) FY2025.
               Source files cover 549 NC municipalities. Rate is per $100 assessed value (Row 100).
@@ -221,8 +220,7 @@ export default function MethodologySection() {
             <LimitationList items={[
               '535 of 549 municipalities have a positive tax rate; 14 have a zero rate (no property tax levy).',
               '"Dominant county" assignment: municipalities straddling county lines are assigned to one county. Residents in the non-dominant portion may see a slightly wrong county rate.',
-              'Municipal rates are updated annually by NC DST. The pipeline data refresh cadence should include updating municipal_rates.py each fall when new AFIRs are released.',
-              'Assessed values used for the municipal overlay are the same estimates used for the county rate — both are applied to the same home value, so the ratio is exact.',
+              'Assessed values used for the municipal overlay are the same estimates used for the county rate; both are applied to the same home value, so the ratio is exact.',
             ]} />
           </Section>
 
@@ -231,22 +229,17 @@ export default function MethodologySection() {
               <thead>
                 <tr>
                   <th scope="col">Omission</th>
-                  <th scope="col">Status</th>
+                  <th scope="col">Reason</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td>Payroll taxes (SS + Medicare) — employee share</td><td>Added in V2</td></tr>
-                <tr><td>Municipal overlay property tax rates</td><td>Added in V2</td></tr>
-                <tr><td>Historical NC income tax rate trend</td><td>Added in V2</td></tr>
-                <tr><td>Policy simulation (NC rate + deduction)</td><td>Added in V2</td></tr>
-                <tr><td>Your taxes → services breakdown</td><td>Added in V2</td></tr>
                 <tr><td>Gas tax</td><td>County-level consumption data unreliable</td></tr>
                 <tr><td>Vehicle purchases (Highway Use Tax)</td><td>Separate 3% NC tax; variable spending</td></tr>
-                <tr><td>Corporate / business taxes</td><td>Incidence contested; V3</td></tr>
-                <tr><td>Employer-side payroll tax incidence</td><td>Contested methodology; V3</td></tr>
+                <tr><td>Corporate / business taxes</td><td>Incidence contested</td></tr>
+                <tr><td>Employer-side payroll tax incidence</td><td>Incidence contested</td></tr>
                 <tr><td>Lottery</td><td>Requires separate methodology</td></tr>
                 <tr><td>Itemized deductions</td><td>Standard deduction used throughout</td></tr>
-                <tr><td>Future NC rate reductions (2027–2028)</td><td>Require annual legislative confirmation; V3</td></tr>
+                <tr><td>Future NC rate reductions (2027–2028)</td><td>Require annual legislative confirmation</td></tr>
                 <tr><td>Capital gains / investment income</td><td>Separate bracket structure needed</td></tr>
               </tbody>
             </table>
@@ -254,9 +247,9 @@ export default function MethodologySection() {
 
           <Section title="Household Size">
             <p>
-              Household size was evaluated and excluded from V1. Variation in taxable consumption by household
+              Household size was evaluated and not included. Variation in taxable consumption by household
               size at the same income level produces a sales tax difference of approximately $200/year (0.4%
-              of income at the $50K bracket) — within the estimation uncertainty of CEX-based modeling.
+              of income at the $50K bracket), within the estimation uncertainty of CEX-based modeling.
             </p>
           </Section>
 
@@ -281,35 +274,23 @@ export default function MethodologySection() {
                 <tr><td>Taxable consumption by bracket</td><td>BLS CEX 2024</td><td>Calendar year 2024</td></tr>
                 <tr><td>Federal income tax effective rates</td><td>ITEP (2024) + IRS SOI (2022)</td><td>2024 / 2022</td></tr>
                 <tr><td>Payroll tax parameters</td><td>IRS 2026; SSA wage base announcement</td><td>2026 tax year</td></tr>
-                <tr><td>State budget allocations</td><td>NC OSBM FY2024 Budget Summary</td><td>FY2024</td></tr>
+                <tr><td>State budget allocations</td><td>NC Expenditures by Committee CSV (OSBM / Fiscal Research Division)</td><td>see source file</td></tr>
                 <tr><td>Local budget allocations</td><td>NC DST County AFIR FY2025</td><td>FY2025</td></tr>
-                <tr><td>Federal budget allocations</td><td>OMB Historical Table 3.2</td><td>FY2023</td></tr>
+                <tr><td>Federal budget allocations</td><td>USASpending.gov Federal Account Balances (DATA Act)</td><td>FY2025</td></tr>
               </tbody>
             </table>
             <p>
-              <a href="./pipeline_audit.csv" download>Download the full pipeline audit CSV</a> — source,
+              <a href="./pipeline_audit.csv" download>Download the full pipeline audit CSV</a>: source,
               vintage, assumption, and quality flag for every cell in the dataset.
             </p>
           </Section>
 
-          <Section title="Challenging These Estimates">
-            <p>
-              We expect methodological disagreements. If you're a researcher, policy analyst, or
-              practitioner and see something that should be different, please open an issue or contact us.
-            </p>
-            <ol className="meth-list">
-              <li>The income-bracket home value multipliers (derived from ACS B25121 — the state cross-tab is coarse)</li>
-              <li>The 6% rental unit cap rate assumption</li>
-              <li>The CEX taxable consumption estimates, especially at the $25K and $200K+ brackets</li>
-              <li>The federal income tax effective rates (sensitive to the payroll/income split methodology)</li>
-              <li>The budget allocation percentages (especially local allocations for the 22 counties using statewide averages)</li>
-            </ol>
-            <p>
-              <a href="https://github.com/zanedavis/nc-fiscal-explorer/issues" target="_blank" rel="noopener noreferrer">
-                Open an issue on GitHub
-              </a>
-            </p>
-          </Section>
+
+        <div className="spending-cta spending-cta--methodology">
+          <Link to="/" className="spending-cta__link">
+            ← Back to Revenue calculator
+          </Link>
+        </div>
 
         </div>
       )}
