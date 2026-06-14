@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/nc-fiscal-explorer/',
+  base: '/where-do-my-taxes-go/',
 })
