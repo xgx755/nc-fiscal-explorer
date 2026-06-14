@@ -4,7 +4,6 @@ import { useAppState } from '../hooks/useAppState'
 import { useAppData } from '../context/AppDataContext'
 import { getTaxRecord } from '../lib/taxUtils'
 import TaxToServices from '../components/TaxToServices'
-import WhoFundsWhat from '../components/WhoFundsWhat'
 import CountyDropdown from '../components/CountyDropdown'
 import BracketButtons from '../components/BracketButtons'
 import HousingToggle from '../components/HousingToggle'
@@ -115,7 +114,6 @@ export default function SpendingPage() {
             localAllocations={countyAlloc}
             municipalAddition={muniAddition}
           />
-          <WhoFundsWhat />
           <div className="spending-cta spending-cta--methodology">
             <NavLink to="/methodology" className="spending-cta__link">
               How these estimates are calculated →

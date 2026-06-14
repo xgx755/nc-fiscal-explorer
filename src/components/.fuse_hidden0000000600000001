@@ -1,0 +1,184 @@
+/**
+ * TaxSourceTreemap.jsx
+ * ---------------------
+ * "Where your taxes come from" treemap for the Revenue page.
+ *
+ * Parallels TaxToServices.jsx's "Where your taxes go" purpose treemap, but
+ * for the revenue side: cells are sized by the dollar amount of each tax
+ * type the household pays, and colored by which level of government
+ * collects it (Local / State / Federal), using the same LEVEL_COLORS as
+ * TaxStackedBar and the level legend on the Expenditures page.
+ *
+ * Clicking a cell calls onSelect(taxRowKey) so the host page can expand the
+ * matching "How?" receipt row in TaxBreakdownTable.
+ */
+
+import { Treemap, ResponsiveContainer } from 'recharts'
+import { TAX_ROWS, LEVEL_COLORS, formatCurrency } from '../lib/taxUtils'
+import { TreemapCell } from './treemap/TreemapCell'
+
+function levelShare(amount, total) {
+  return total > 0 ? (amount / total) * 100 : 0
+}
+
+// Per-tax color variants — small shifts on each level's base color
+// (LEVEL_COLORS) so individual taxes are distinguishable from one another
+// while still reading as "the same level" at a glance.
+const TAX_COLORS = {
+  property_tax:         '#2d6a30', // Local — base green
+  sales_tax_local:      '#4f9153', // Local — lighter green
+  sales_tax_state:      '#c05600', // State — base amber
+  state_income_tax:     '#e08a33', // State — lighter amber
+  federal_income_tax:   '#1a4480', // Federal — base navy
+  payroll_tax_ss:       '#3a6ba8', // Federal — mid blue
+  payroll_tax_medicare: '#6a93c2', // Federal — light blue
+}
+
+function taxColor(key, level) {
+  return TAX_COLORS[key] ?? LEVEL_COLORS[level]
+}
+
+/**
+ * Builds treemap cells from a tax record. Payroll tax is split into its
+ * Social Security and Medicare components (both still map back to the
+ * `payroll_tax` row for expand/scroll purposes), matching the level of
+ * detail already shown in TaxBreakdownTable's payroll sub-rows.
+ */
+function buildCells(record, municipalAddition) {
+  const { taxes } = record
+  const cells = []
+
+  for (const row of TAX_ROWS) {
+    const cell = taxes[row.key]
+    if (!cell) continue
+
+    if (row.key === 'payroll_tax') {
+      const ss = cell.social_security ?? 0
+      const med = cell.medicare ?? 0
+      if (ss > 0) {
+        cells.push({ key: 'payroll_tax_ss', taxRowKey: 'payroll_tax', name: 'Social Security', size: ss, level: row.level })
+      }
+      if (med > 0) {
+        cells.push({ key: 'payroll_tax_medicare', taxRowKey: 'payroll_tax', name: 'Medicare', size: med, level: row.level })
+      }
+      continue
+    }
+
+    let amount = cell.annual_burden ?? 0
+    if (row.key === 'property_tax') amount += municipalAddition
+
+    if (amount > 0) {
+      cells.push({ key: row.key, taxRowKey: row.key, name: row.label, size: amount, level: row.level })
+    }
+  }
+
+  return cells
+}
+
+export default function TaxSourceTreemap({ record, municipalAddition = 0, onSelectTax }) {
+  if (!record) return null
+
+  const cells = buildCells(record, municipalAddition)
+  if (cells.length === 0) return null
+
+  const grandTotal = cells.reduce((sum, c) => sum + c.size, 0)
+
+  const sortedCells = [...cells].sort((a, b) => b.size - a.size)
+
+  const treemapData = sortedCells.map(c => ({
+    key: c.key,
+    itemKey: c.taxRowKey,
+    name: c.name,
+    size: c.size,
+    pct: levelShare(c.size, grandTotal),
+    color: taxColor(c.key, c.level),
+    level: c.level,
+  }))
+
+  return (
+    <section className="trs-section" aria-labelledby="trs-heading">
+      <div className="trs-header">
+        <div>
+          <h2 className="section-heading" id="trs-heading">
+            Where your tax dollars come from
+          </h2>
+          <p className="trs-subtitle">
+            Each tile is one tax you pay, sized by its share of your total estimated burden and
+            colored by which level of government collects it. Select a tile to see how it's calculated.
+          </p>
+        </div>
+
+        <div className="trs-legend" aria-hidden="true">
+          {Object.entries(LEVEL_COLORS).map(([level, color]) => (
+            <span key={level} className="trs-legend__item">
+              <span className="trs-legend__swatch" style={{ background: color }} />
+              {level}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="tts-breakdown">
+      <div className="trs-treemap" role="img" aria-label="Tax burden by source, sized by share of total tax burden">
+        <ResponsiveContainer width="100%" height="100%">
+          <Treemap
+            data={treemapData}
+            dataKey="size"
+            nameKey="name"
+            stroke="transparent"
+            isAnimationActive
+            animationDuration={450}
+            animationEasing="ease-out"
+            content={<TreemapCell onSelect={onSelectTax} />}
+          />
+        </ResponsiveContainer>
+      </div>
+
+      <div className="tts-purpose-rows" role="list" aria-label="Tax burden by source">
+        {treemapData.map(c => (
+          <div key={c.key} className="tts-purpose-row" role="listitem">
+            <button
+              type="button"
+              className="tts-purpose-row__main"
+              onClick={() => onSelectTax?.(c.itemKey)}
+            >
+              <span className="tts-purpose-row__swatch" style={{ background: c.color }} aria-hidden="true" />
+
+              <span className="tts-purpose-row__label">{c.name}</span>
+
+              <span className="tts-purpose-row__bar" aria-hidden="true">
+                <span className="tts-purpose-row__segment" style={{ width: '100%', background: c.color }} />
+              </span>
+
+              <span className="tts-purpose-row__pct">{c.pct.toFixed(0)}%</span>
+              <span className="tts-purpose-row__amount">{formatCurrency(c.size)}</span>
+              <span className="tts-purpose-row__chevron" aria-hidden="true">▾</span>
+            </button>
+          </div>
+        ))}
+      </div>
+      </div>
+
+      <table className="sr-only" aria-label="Tax burden by source table">
+        <thead>
+          <tr>
+            <th>Tax</th>
+            <th>Level</th>
+            <th>Amount</th>
+            <th>% of total burden</th>
+          </tr>
+        </thead>
+        <tbody>
+          {treemapData.map(c => (
+            <tr key={c.key}>
+              <td>{c.name}</td>
+              <td>{sortedCells.find(x => x.key === c.key)?.level}</td>
+              <td>{formatCurrency(c.size)}</td>
+              <td>{c.pct.toFixed(0)}%</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+  )
+}

@@ -8,8 +8,8 @@ import CountyDropdown from '../components/CountyDropdown'
 import BracketButtons from '../components/BracketButtons'
 import HousingToggle from '../components/HousingToggle'
 import MunicipalityDropdown, { UNINCORPORATED } from '../components/MunicipalityDropdown'
-import TaxBreakdownTable from '../components/TaxBreakdownTable'
 import TaxStackedBar from '../components/TaxStackedBar'
+import TaxSourceTreemap from '../components/TaxSourceTreemap'
 import BracketComparePicker from '../components/BracketComparePicker'
 import BracketCompareTable from '../components/BracketCompareTable'
 
@@ -76,6 +76,7 @@ export default function CalculatorPage() {
   const housingLabel  = housing === 'owner' ? 'a homeowner' : 'a renter'
   const rangeLabel    = BRACKET_RANGES[bracket] ?? bracket
   const resultKey = `${effectiveCounty}-${bracket}-${housing}-${selectedMuni ?? ''}`
+
   const summaryHeading = getTaxSummaryHeading(record)
   const totalBurden    = (record?.total?.annual_burden ?? 0) + muniAddition
 
@@ -136,7 +137,11 @@ export default function CalculatorPage() {
         <Disclaimer />
 
         {loading && (
-          <TaxBreakdownTable record={null} housing={housing} bracket={bracket} loading={true} />
+          <div className="skeleton-table" aria-busy="true" aria-label="Loading tax data">
+            {[1, 2, 3, 4].map(i => (
+              <div key={i} className="skeleton-row" />
+            ))}
+          </div>
         )}
 
         {!loading && record && (
@@ -156,14 +161,13 @@ export default function CalculatorPage() {
               <TaxStackedBar record={record} municipalAddition={muniAddition} />
             </section>
 
-            <section className="table-section" aria-label="Tax burden table">
-              <TaxBreakdownTable
+            <section className="chart-section" aria-label="Tax burden by source">
+              <TaxSourceTreemap
                 record={record}
+                municipalAddition={muniAddition}
                 housing={housing}
                 bracket={bracket}
-                loading={false}
-                municipalAddition={muniAddition}
-                municipalLabel={selectedMuni}
+                bracketIncome={bracketIncome}
               />
             </section>
 

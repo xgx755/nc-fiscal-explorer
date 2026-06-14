@@ -228,7 +228,9 @@ export default function TaxToServices({ record, county, localAllocations, munici
               dataKey="size"
               nameKey="name"
               stroke="transparent"
-              isAnimationActive={false}
+              isAnimationActive
+              animationDuration={450}
+              animationEasing="ease-out"
               content={<TreemapCell onSelect={handleSelectPurpose} />}
             />
           </ResponsiveContainer>

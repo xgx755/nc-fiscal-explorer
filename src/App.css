@@ -61,7 +61,7 @@ a:hover { color: var(--primary-mid); }
   white-space: nowrap; border: 0;
 }
 
-.app { min-height: 100vh; display: flex; flex-direction: column; }
+.app { display: flex; flex-direction: column; }
 
 /* ── Site Header ────────────────────────────────────────────────────────── */
 .site-header {
@@ -156,8 +156,11 @@ a:hover { color: var(--primary-mid); }
   position: sticky;
   top: var(--nav-h);
   z-index: 40;
-  background: var(--bg);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
+  box-shadow: 0 4px 12px -8px rgba(0, 0, 0, 0.18);
 }
 .controls-bar__inner {
   max-width: var(--max-w);
@@ -820,6 +823,7 @@ a:hover { color: var(--primary-mid); }
 .tts-summary__segment {
   height: 100%;
   min-width: 2px;
+  transition: width 450ms ease-out;
 }
 .tts-summary__tiles {
   display: grid;
@@ -869,118 +873,193 @@ a:hover { color: var(--primary-mid); }
   font-variant-numeric: tabular-nums;
   margin-top: 0.1rem;
 }
-.tts-details {
+.tts-breakdown {
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--surface);
-  padding: 0.9rem 1rem 1rem;
+  padding: 1.1rem 1.1rem 1.25rem;
 }
-.tts-details__summary {
-  list-style: none;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--primary);
-  background: var(--primary-faint, rgba(59,130,246,0.07));
-  border: 1px solid var(--primary-faint, rgba(59,130,246,0.18));
-  border-radius: 20px;
-  padding: 0.3rem 0.75rem;
-  margin-bottom: 0.9rem;
-  transition: background 0.15s, border-color 0.15s;
-  user-select: none;
+.tts-breakdown__heading {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 0.85rem;
 }
-.tts-details__summary:hover {
-  background: var(--primary-faint, rgba(59,130,246,0.13));
-  border-color: var(--primary);
-}
-.tts-details__summary::-webkit-details-marker { display: none; }
-details[open] .tts-details__arrow { display: inline-block; transform: rotate(180deg); }
-.tts-details__arrow { display: inline-block; transition: transform 0.2s; }
-.tts-purpose-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.tts-purpose-card {
-  border: 1px solid var(--border);
+.tts-treemap {
+  width: 100%;
+  height: 220px;
+  margin-bottom: 1.1rem;
   border-radius: 8px;
-  background: var(--surface);
-  padding: 1rem 1rem 0.9rem;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+  background: var(--bg);
 }
-.tts-purpose-card__head {
+
+/* ── TaxSourceTreemap ("Where your tax dollars come from") ── */
+.trs-section {
+  max-width: var(--max-w);
+  margin: 0 auto var(--section-gap);
+  padding: 2.5rem var(--gutter) 0;
+}
+.trs-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 }
-.tts-purpose-card__title {
-  font-family: var(--font-serif);
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--text);
-  line-height: 1.25;
+.trs-section .section-heading {
+  margin-bottom: 0.4rem;
 }
-.tts-purpose-card__meta {
-  font-size: 12px;
+.trs-subtitle {
+  font-size: 14px;
   color: var(--text-secondary);
-  margin-top: 0.25rem;
+  max-width: 72ch;
+  line-height: 1.55;
 }
-.tts-purpose-card__totals {
+.trs-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  justify-content: flex-end;
   flex-shrink: 0;
+}
+.trs-legend__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.trs-legend__swatch {
+  width: 11px;
+  height: 11px;
+  border-radius: 9999px;
+}
+.trs-treemap {
+  width: 100%;
+  height: 220px;
+  margin-bottom: 1.1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg);
+}
+.treemap-cell {
+  transition: transform 180ms ease-out;
+  cursor: default;
+}
+.treemap-cell:hover {
+  transform: scale(1.015);
+}
+.treemap-cell__rect {
+  transition: filter 180ms ease-out;
+}
+.treemap-cell:hover .treemap-cell__rect {
+  filter: brightness(1.08);
+}
+.tts-purpose-rows {
   display: flex;
   flex-direction: column;
-  gap: 0.18rem;
-  text-align: right;
-  font-size: 12px;
+  gap: 0.4rem;
+}
+.tts-purpose-row {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  transition: border-color 220ms ease-out, box-shadow 220ms ease-out;
+}
+.tts-purpose-row--active {
+  border-color: var(--text-muted);
+  box-shadow: 0 0 0 1px var(--border);
+}
+.tts-purpose-row__main {
+  display: grid;
+  grid-template-columns: 10px minmax(0, 1.6fr) minmax(0, 1fr) 2.5rem 5.5rem 1rem;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+  border: none;
+  background: none;
+  padding: 0.55rem 0.75rem;
+  font-family: var(--font-sans);
+  text-align: left;
+  cursor: pointer;
+}
+.tts-purpose-row__swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+}
+.tts-purpose-row__label {
+  font-size: 13px;
   font-weight: 600;
   color: var(--text);
-  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.tts-purpose-card__bar {
+.tts-purpose-row__bar {
   display: flex;
-  height: 16px;
+  height: 8px;
   background: var(--border);
   border-radius: 9999px;
   overflow: hidden;
 }
-.tts-purpose-card__segment {
+.tts-purpose-row__segment {
   height: 100%;
   min-width: 2px;
+  transition: width 400ms ease-out;
 }
-.tts-purpose-card__chips {
+.tts-purpose-row__pct {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.tts-purpose-row__amount {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.tts-purpose-row__chevron {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-align: right;
+  display: inline-block;
+  transition: transform 200ms ease-out;
+  transform: rotate(0deg);
+}
+.tts-purpose-row__chevron--open {
+  transform: rotate(180deg);
+}
+.tts-purpose-row__detail {
+  border-top: 1px solid var(--border);
+  padding: 0.75rem 0.9rem 0.9rem;
+}
+.tts-purpose-row__detail--enter {
+  animation: tts-detail-in 220ms ease-out;
+}
+@keyframes tts-detail-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.tts-purpose-row__totals {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-top: 0.7rem;
-}
-.tts-purpose-chip {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.2rem 0.55rem;
-  border-radius: 9999px;
-  background: var(--primary-faint);
-  color: var(--primary);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-.tts-purpose-card__toggle {
-  margin-top: 0.7rem;
-  background: none;
-  border: none;
-  padding: 0;
+  gap: 0.4rem 1rem;
   font-size: 12px;
   font-weight: 600;
-  color: var(--primary);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  cursor: pointer;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 0.5rem;
 }
 .tts-source-list {
   margin-top: 0.75rem;
@@ -1026,6 +1105,32 @@ details[open] .tts-details__arrow { display: inline-block; transform: rotate(180
   color: var(--text-muted);
   margin-top: 1.5rem;
   line-height: 1.6;
+}
+
+.trs-total-row {
+  display: grid;
+  grid-template-columns: 10px minmax(0, 1.6fr) minmax(0, 1fr) 3.5rem 5.5rem 1rem;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.85rem 0.9rem;
+  margin-top: 0.5rem;
+  border-top: 2px solid var(--text);
+  font-weight: 700;
+  color: var(--text);
+}
+.trs-total-row__label {
+  grid-column: 2;
+}
+.trs-total-row__pct {
+  grid-column: 4;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.trs-total-row__amount {
+  grid-column: 5;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 
 /* ── V2: Data quality flag ──────────────────────────────────────────────── */
@@ -1530,12 +1635,19 @@ details[open] .tts-details__arrow { display: inline-block; transform: rotate(180
   /* ── TaxToServices ── */
   .tts-section { padding: 1.5rem var(--gutter) 0; }
   .tts-header { flex-direction: column; }
-  .tts-purpose-card__head { flex-direction: column; }
-  .tts-purpose-card__totals { text-align: left; }
-  .tts-purpose-card__bar { height: 14px; }
-  .tts-purpose-card__chips { gap: 0.4rem; }
   .tts-source-row { grid-template-columns: 1fr auto; }
   .tts-summary__tiles { grid-template-columns: 1fr; }
+  .tts-treemap { height: 180px; }
+  .trs-treemap { height: 180px; }
+  .trs-header { flex-direction: column; }
+  .trs-legend { justify-content: flex-start; }
+  .tts-purpose-row__main {
+    grid-template-columns: 10px minmax(0, 1fr) 2.5rem 5rem 1rem;
+  }
+  .tts-purpose-row__bar { display: none; }
+  .trs-total-row {
+    grid-template-columns: 10px minmax(0, 1fr) 3.2rem 5rem 1rem;
+  }
   .tts-summary__tile-amount { font-size: 20px; }
   .tts-legend { justify-content: flex-start; }
 
